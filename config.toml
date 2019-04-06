@@ -1,6 +1,9 @@
-baseURL = "http://example.org/"
+baseURL = "https://nray-scanner.org/"
 languageCode = "en-us"
 title = "nray"
+
+publishDir = "docs"
+
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
