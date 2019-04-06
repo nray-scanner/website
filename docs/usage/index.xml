@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Usage on nray</title>
+    <link>https://nray-scanner.org/usage/</link>
+    <description>Recent content in Usage on nray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Apr 2019 00:17:55 +0200</lastBuildDate>
+    
+	<atom:link href="https://nray-scanner.org/usage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

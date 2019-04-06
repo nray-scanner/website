@@ -1,10 +1,52 @@
 [
 {
 	"uri": "https://nray-scanner.org/",
-	"title": "Welcome to nray!",
+	"title": "nray",
 	"tags": [],
 	"description": "",
-	"content": " nray Coming soon\n"
+	"content": " nray Coming soon.\nIf you are curious what this is about or you want to take part in the closed beta testing, get in contact.\n"
+},
+{
+	"uri": "https://nray-scanner.org/introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Introduction dummy\n"
+},
+{
+	"uri": "https://nray-scanner.org/installation/prebuilt/",
+	"title": "Prebuilt Binaries",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://nray-scanner.org/installation/",
+	"title": "Installation",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://nray-scanner.org/installation/build-your-own/",
+	"title": "Build Your Own",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://nray-scanner.org/usage/",
+	"title": "Usage",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://nray-scanner.org/contribute/",
+	"title": "Contribute",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://nray-scanner.org/categories/",

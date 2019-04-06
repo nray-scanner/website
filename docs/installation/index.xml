@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nray</title>
-    <link>https://nray-scanner.org/</link>
-    <description>Recent content on nray</description>
+    <title>Installation on nray</title>
+    <link>https://nray-scanner.org/installation/</link>
+    <description>Recent content in Installation on nray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Apr 2019 17:42:56 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2019 00:17:57 +0200</lastBuildDate>
     
-	<atom:link href="https://nray-scanner.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nray-scanner.org/installation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
