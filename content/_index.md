@@ -8,7 +8,12 @@ chapter = false
 
 # nray
 
-Coming soon.
+#### Welcome to the home page of **nray**, a free, modern, platform independent and distributed network scanner.
 
-If you are curious what this is about or you want to take part in the closed beta testing, get in contact.
+New to nray? Read the [introduction](introduction) to get started.
 
+Searching for the latest releases or information on how to build your own? The [installation](installation) chapter answers all your questions.
+
+Already got everything in place? [Usage](usage) describes general usage as well as configuration and advanced tricks to get most out of nray!
+
+Got hooked? Having problems? The documentation lacks information. **YOU** can help? [Join the team and shape the next generation of network discovery!](contribute)
