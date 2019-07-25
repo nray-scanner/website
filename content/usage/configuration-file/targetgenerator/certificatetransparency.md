@@ -1,25 +1,43 @@
 ---
-title: "standard"
-weight: 5
-pre: <b>3.1.5 </b>
+title: "certificatetransparency"
+weight: 6
+pre: <b>3.1.6 </b>
 ---
 
-This is the standard target generator that is probably going to be used most of the time. 
-It takes a list of IPs, CIDR networks or domain names as targets and black list as well as a list of TCP and UDP ports to be scanned.
+The `certificatetransparency` streams data from [certstream](https://certstream.calidog.io/), a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.
 
-#### `enabled: true`
+{{% notice tip %}}
+This may come in handy for bug bounties - if this turns out to be the new bounty hunter's cash cow, the nray authors would love to receive a small tip for their voluntary work <i class="far fa-smile-wink"></i> 
+{{% /notice %}}
+
+#### `enabled: false`
 
 Enables or disables this target generator.
 
-#### `targets: ["192.168.178.1/28"]`
+#### `domainRegex: '^(www[.]).*([.]com)$'`
 
-A list of targets to scan. 
-May be CIDR networks, IPs or domain names.
+Scan every site that obtains a certificate and matches the pattern `www.somethingsomething.com`. Since regex becomes tricky fast, [this play](https://play.golang.org/p/jgDiTmPlqdW) can be adopted to see if the expression works as intended.
 
-#### `targetFile: ""`
+{{%expand "Code to try your own regular expression against a domain" %}}
+~~~golang
+package main
 
-A file containing a list of targets to scan. 
-May be CIDR networks, IPs or domain names, newline separated.
+import (
+	"fmt"
+	"regexp"
+)
+
+var regex = "^(www[.]).*([.]com)$"
+var toCheck = "www.google.com"
+
+func main() {
+	re := regexp.MustCompile(regex)
+	fmt.Println(re.MatchString(toCheck))
+}
+~~~
+{{% /expand%}}
+
+Interesting use case ideas: Scan `mail.*` for open relays on port 25, check new `jenkins.*` instances if `/script` endpoint is present, or maybe there is some software out there that still uses default passwords? Endless possibilities!
 
 #### `tcpports: ["top50"]`
 
@@ -37,18 +55,6 @@ Duplicates are filtered out <i class="far fa-smile-wink"></i>
 
 A list of targets not to scan. 
 May be CIDR networks, IPs or domain names.
-
-{{% notice info %}}
-DNS resolution happens at the node and there is no reverse DNS lookup. 
-This has important implications.
-For example, consider *example.local* resolving to *10.10.10.10*. 
-When blacklisting *example.local* but scanning for *10.10.10.0/24*, the server is going to be scanned. When blacklisting *10.10.10.0/24* but scanning for *example.local*, the server is going to be scanned.
-{{% /notice %}}
-
-#### `blacklistFile: "./blacklist.txt"`
-
-A file containing a list of targets to scan. 
-May be CIDR networks, IPs or domain names, newline separated.
 
 {{% notice info %}}
 DNS resolution happens at the node and there is no reverse DNS lookup. 

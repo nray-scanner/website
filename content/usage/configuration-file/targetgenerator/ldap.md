@@ -1,25 +1,46 @@
 ---
-title: "standard"
-weight: 5
-pre: <b>3.1.5 </b>
+title: "ldap"
+weight: 7
+pre: <b>3.1.7 </b>
 ---
 
-This is the standard target generator that is probably going to be used most of the time. 
-It takes a list of IPs, CIDR networks or domain names as targets and black list as well as a list of TCP and UDP ports to be scanned.
+The `ldap` target generator allows to connect to a ldap server in order to identify scan targets. Especially in Active Directory environments this is really useful since computer objects have a `dNSHostName` property and Donmain Controllers usually act also as DNS servers [that can be queried via LDAP](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/).
 
-#### `enabled: true`
+#### `enabled: false`
 
 Enables or disables this target generator.
 
-#### `targets: ["192.168.178.1/28"]`
+#### `ldapSearchString: "(objectCategory=computer)"`
 
-A list of targets to scan. 
-May be CIDR networks, IPs or domain names.
+The ldap search to perform for selecting objects. In Active Directory environments, `(objectCategory=computer)` can be used to select all computer objects.
 
-#### `targetFile: ""`
+#### `baseDN: "dc=contoso,dc=com"`
 
-A file containing a list of targets to scan. 
-May be CIDR networks, IPs or domain names, newline separated.
+Base DN to start search.
+
+#### `ldapAttribute: "dNSHostName"`
+
+On all selected objects, extract `ldapAttribute`. This one is going to be scanned. In Active Directory envrionments, chances are that `dNSHostName` can be resolved and is alive.
+
+#### `ldapServer: ""`
+
+The ldapServer to connect to.
+
+#### `ldapPort: 636`
+
+The ldap port. Usually 636 for encrypted connections and 389 for unencrypted.
+
+#### `insecure: false`
+
+Don't use TLS.
+
+#### `ldapUser: ""`
+
+Username to perform the ldap bind. For Active Directory domains, `<user>@<domain.fqdn>`.
+
+#### `ldapPass: ""`
+
+The user's password.
 
 #### `tcpports: ["top50"]`
 
