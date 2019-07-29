@@ -1,5 +1,5 @@
 ---
 title: "Pooling"
-weight: 20
+weight: 200
 pre: <b>3.2 </b>
 ---

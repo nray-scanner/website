@@ -1,6 +1,6 @@
 ---
 title: "Prebuilt Binaries"
-weight: 20
+weight: 220
 ---
 
 Prebuilt binaries can be downloaded from the project's Github page (TODO LINK). Currently, binaries for the following operating systems and architectures are provided:

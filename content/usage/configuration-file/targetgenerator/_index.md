@@ -1,7 +1,7 @@
 ---
 title: "targetgenerator"
-weight: 4
-pre: <b>3.1.4 </b>
+weight: 420
+pre: <b>3.1.4.0 </b>
 ---
 
 Everything that produces a stream of targets that need to be scanned is a target generator.

@@ -9,6 +9,8 @@ pygmentsCodeFences = true
 theme = "hugo-theme-learn"
 [params]
   themeVariant = "blue"
+  editURL = "https://github.com/nray-scanner/website/edit/master/content/"
+
 
 # For search functionality
 [outputs]

@@ -1,7 +1,7 @@
 ---
 title: "standard"
 weight: 5
-pre: <b>3.1.5 </b>
+pre: <b>3.1.4.1 </b>
 ---
 
 This is the standard target generator that is probably going to be used most of the time. 
@@ -63,9 +63,9 @@ Specifies how many target hosts are contained in a single work batch sent to a n
 
 #### `maxTcpPortsPerBatch: 25`
 
-Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).
 
 
 #### `maxUdpPortsPerBatch: 25`
 
-Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).

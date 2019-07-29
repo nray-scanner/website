@@ -1,7 +1,7 @@
 ---
 title: "ldap"
 weight: 7
-pre: <b>3.1.7 </b>
+pre: <b>3.1.4.3 </b>
 ---
 
 The `ldap` target generator allows to connect to a ldap server in order to identify scan targets. Especially in Active Directory environments this is really useful since computer objects have a `dNSHostName` property and Donmain Controllers usually act also as DNS servers [that can be queried via LDAP](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/).
@@ -84,9 +84,9 @@ Specifies how many target hosts are contained in a single work batch sent to a n
 
 #### `maxTcpPortsPerBatch: 25`
 
-Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).
 
 
 #### `maxUdpPortsPerBatch: 25`
 
-Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).

@@ -1,6 +1,6 @@
 ---
 title: "Build Your Own"
-weight: 25
+weight: 250
 ---
 
 Want to build your own? Great, that's the spirit! If you know git and commandline basics, it isn't too hard, promised! <i class="far fa-smile-beam"></i>

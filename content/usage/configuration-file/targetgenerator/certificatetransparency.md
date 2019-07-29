@@ -1,7 +1,7 @@
 ---
 title: "certificatetransparency"
 weight: 6
-pre: <b>3.1.6 </b>
+pre: <b>3.1.4.2 </b>
 ---
 
 The `certificatetransparency` streams data from [certstream](https://certstream.calidog.io/), a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.
@@ -69,9 +69,9 @@ Specifies how many target hosts are contained in a single work batch sent to a n
 
 #### `maxTcpPortsPerBatch: 25`
 
-Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxUdpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).
 
 
 #### `maxUdpPortsPerBatch: 25`
 
-Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements.
+Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with `maxHostsPerBatch` and `maxTcpPortsPerBatch` as well as depending on the actual requirements. You may take a look at [A note on work scheduling](../#a-note-on-work-scheduling).
