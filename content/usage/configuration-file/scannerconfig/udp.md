@@ -7,9 +7,17 @@ pre: <b>3.1.5.2 </b>
 
 #### `fast: false`
 
+Fast sends only known payloads to known ports. The list and payloads are taken from the Metasploit project and it contains currently UDP ports 1604, 53, 137, 123, 524, 5093, 1434, 161, and 111.
+
 #### `defaultHexPayload: "\x41\x41\x41"`
 
+Since UDP is connectionless, a payload needs to be sent. 
+This option configures the default payload that is sent if no custom payload is specified for a port.
+ASCII is supported as well as hexadecimal and octal data representation.
+
 #### `customHexPayloads:`
+
+Allows to specify custom payloads for specific ports. The example below sends a single `'A'` character to udp/19:
 
 ~~~yaml
 customHexPayloads: 
@@ -17,3 +25,5 @@ customHexPayloads:
 ~~~
 
 #### `timeout: 800ms`
+
+Timeout for UDP. If no response is received within this timeframe, a port is marked closed.

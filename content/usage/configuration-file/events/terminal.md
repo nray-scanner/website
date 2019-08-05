@@ -6,8 +6,8 @@ pre: <b>3.1.6.1 </b>
 
 #### `enabled: true`
 
-#### `filter: `
+Enables printing of events to stdout.
 
-#### `internal:`
+#### `internal.channelsize: 1000`
 
-#### `channelsize: 1000`
+Size of the internal channel holding events.

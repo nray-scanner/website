@@ -4,7 +4,7 @@ weight: 100
 pre: <b>1. </b>
 ---
 
-Nray is a sophisticated port scanner **built from scratch**. No Nmap wrappers, no Python glue code, no weekend project.
+Nray is a sophisticated port scanner **built from scratch**. 
 
 Nray doesn't require administrative permissions and runs dependencyless on nearly any architecture and operating system. 
 Nevertheless, its scan speed is superior to Nmap in most cases while delivering nearly the same result quality regarding discovered ports.
