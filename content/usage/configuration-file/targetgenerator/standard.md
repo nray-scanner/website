@@ -11,23 +11,36 @@ It takes a list of IPs, CIDR networks or domain names as targets and black list 
 
 Enables or disables this target generator.
 
-#### `targets: ["192.168.178.1/28"]`
+#### `targets: []`
 
 A list of targets to scan. 
-May be CIDR networks, IPs or domain names.
+May be (also a mix of) CIDR networks, IPs or domain names.
+
+Example:
+
+~~~yaml
+standard:
+    enabled: true
+    targets: ["192.168.1.1/24", "192.168.16.0/22", "somesystem.domain.local", "192.168.12.14"]
+    tcpports: ["top25"]
+    udpports: ["top25"]
+    maxHostsPerBatch: 150
+    maxTcpPortsPerBatch: 25
+    maxUdpPortsPerBatch: 25
+~~~
 
 #### `targetFile: ""`
 
 A file containing a list of targets to scan. 
 May be CIDR networks, IPs or domain names, newline separated.
 
-#### `tcpports: ["top50"]`
+#### `tcpports: ["top25"]`
 
 List of TCP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 
 Duplicates are filtered out <i class="far fa-smile-wink"></i>
 
-#### `udpports: []`
+#### `udpports: ["top25"]`
 
 List of UDP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 

@@ -20,7 +20,7 @@ Forces use of TLS.
 
 TCP port elasticsearch is listening on.
 
-#### `internal.indexname: "nray-scanner"`
+#### `internal.indexname: "nray"`
 
 The name of the index.
 

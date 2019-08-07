@@ -25,6 +25,14 @@ Ports to subscribe for HTTPS scanning. If one of these is found open, the HTTPS 
 
 Timeout before the scan is cancelled.
 
+#### `method: "GET"`
+
+HTTP method to use.
+
+#### `endpoint: "/"`
+
+HTTP endpoint to request.
+
 #### `userAgent: "nray"`
 
 User Agent to send with the HTTP requests.
@@ -33,6 +41,6 @@ User Agent to send with the HTTP requests.
 
 In case a HTTP connection fails, HTTPS is tried if this option is set to true.
 
-#### `maxRedirects: 5`
+#### `maxRedirects: 2`
 
 How many redirects to follow before giving up.

@@ -1,5 +1,5 @@
 ---
-title: "Configuration file"
+title: "Configuration file (server)"
 weight: 100
 pre: <b>3.1 </b>
 ---

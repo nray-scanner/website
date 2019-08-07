@@ -42,13 +42,13 @@ Username to perform the ldap bind. For Active Directory domains, `<user>@<domain
 
 The user's password.
 
-#### `tcpports: ["top50"]`
+#### `tcpports: ["top25"]`
 
 List of TCP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 
 Duplicates are filtered out <i class="far fa-smile-wink"></i>
 
-#### `udpports: []`
+#### `udpports: ["top25"]`
 
 List of UDP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 
@@ -58,18 +58,6 @@ Duplicates are filtered out <i class="far fa-smile-wink"></i>
 
 A list of targets not to scan. 
 May be CIDR networks, IPs or domain names.
-
-{{% notice info %}}
-DNS resolution happens at the node and there is no reverse DNS lookup. 
-This has important implications.
-For example, consider *example.local* resolving to *10.10.10.10*. 
-When blacklisting *example.local* but scanning for *10.10.10.0/24*, the server is going to be scanned. When blacklisting *10.10.10.0/24* but scanning for *example.local*, the server is going to be scanned.
-{{% /notice %}}
-
-#### `blacklistFile: "./blacklist.txt"`
-
-A file containing a list of targets to scan. 
-May be CIDR networks, IPs or domain names, newline separated.
 
 {{% notice info %}}
 DNS resolution happens at the node and there is no reverse DNS lookup. 

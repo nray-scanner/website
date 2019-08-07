@@ -14,9 +14,11 @@ This may come in handy for bug bounties - if this turns out to be the new bounty
 
 Enables or disables this target generator.
 
-#### `domainRegex: '^(www[.]).*([.]com)$'`
+#### `domainRegex: '^.*$'`
 
-Scan every site that obtains a certificate and matches the pattern `www.somethingsomething.com`. Since regex becomes tricky fast, [this play](https://play.golang.org/p/jgDiTmPlqdW) can be adopted to see if the expression works as intended.
+Scan every site that obtains a certificate and matches the pattern `www.somethingsomething.com`. 
+The default matches every domain name, to match for example `www.somethingsomething.com` an expression like `^(www[.]).*([.]com)$` may be used.
+Since regex becomes tricky fast, [this play](https://play.golang.org/p/jgDiTmPlqdW) can be adopted to see if the expression works as intended.
 
 {{%expand "Code to try your own regular expression against a domain" %}}
 ~~~golang
@@ -39,13 +41,13 @@ func main() {
 
 Interesting use case ideas: Scan `mail.*` for open relays on port 25, check new `jenkins.*` instances if `/script` endpoint is present, or maybe there is some software out there that still uses default passwords? Endless possibilities!
 
-#### `tcpports: ["top50"]`
+#### `tcpports: ["top25"]`
 
 List of TCP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 
 Duplicates are filtered out <i class="far fa-smile-wink"></i>
 
-#### `udpports: []`
+#### `udpports: [top25]`
 
 List of UDP ports to scan. Supports enumerations (`[20,21,22,23]`), ranges (`[8000-8100]`) or nmap-style top-lists (e.g. `["top50"]`). 
 You may also mix, e.g. `[20,21,22,23,8000-8100,"top50"]`. 

@@ -25,7 +25,7 @@ Here, an SSH application layer scan with its own timeout of 2500ms is triggered 
 Nray's ZGrab2 integration runs also concurrent to other scans, using the worker pools and rate limits assigned in the [scanner configuration](../).
 The result produced are also in JSON format and fit into the events produced by nray's port scanning functionality.
 
-#### `enabledModules: ["ssh", "http"]`
+#### `enabledModules: []`
 
 Which ZGrab2 modules to enable. Currently, the following modules are supported:
 

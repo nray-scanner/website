@@ -12,7 +12,7 @@ Enables logging of events to a file.
 
 The filename to log to.
 
-#### `overwriteExisting: true`
+#### `overwriteExisting: false`
 
 If set to `false`, this option prevents from (accidentally) overwriting existing output files. 
 
@@ -20,6 +20,6 @@ If set to `false`, this option prevents from (accidentally) overwriting existing
 
 Size of the internal buffer holding events between force flushing to file system.
 
-#### `internal.synctimer: 10`
+#### `internal.synctimer: 10s`
 
 Interval to flush data to the file system.

@@ -16,7 +16,7 @@ The port to listen on. Multiple ports may be specified, e.g. `listen: [22, 80, 4
 
 #### `host: "127.0.0.1"`
 
-The address to listen on. `"0.0.0.0"` listens on all interfaces. IPv6 may work, too, but this is has not been tested yet.
+The address to listen on. `"0.0.0.0"` listens on all interfaces whereas `"127.0.0.1"` only listens on the loopback interface. IPv6 may work, too, but this is has not been tested yet.
 
 #### `pools: 1`
 

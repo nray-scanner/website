@@ -4,7 +4,7 @@ weight: 500
 pre: <b>3.1.5.0 </b>
 ---
 
-#### `workers: 900`
+#### `workers: 250`
 
 How many asynchronous workers to spawn. 
 There are operating system restrictions to the number of open file descriptors of a process, e.g. 1024 on most modern Linux distributions.

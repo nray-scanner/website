@@ -17,7 +17,7 @@ Ports to subscribe. If one of these is found open, this scanner module is trigge
 
 Timeout before the scan is cancelled.
 
-#### `ClientID: "SSH-2.0-Go"`
+#### `ClientID: "SSH-2.0-Go-nray"`
 
 SSH client ID to present to the server.
 
