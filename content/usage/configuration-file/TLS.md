@@ -10,7 +10,7 @@ pre: <b>3.1.2 </b>
 If you are running nray in any other than your home network, make sure to enable TLS or you are going to have a bad time! If you don't know what TLS is or don't have a basic understanding of how these parameters play together, you should not run nray over untrusted networks!
 {{% /notice %}}
 
-Nray relies on Golang, more specifically [mangos](https://github.com/nanomsg/mangos), to provide support for TLS 1.2. TLS works with key material created by following the instructions of the [TLS quick start guide](../guides/tls-quick-start) TODO.
+Nray relies on Golang, more specifically [mangos](https://github.com/nanomsg/mangos), to provide support for TLS 1.2. TLS works with key material created by following the instructions of the [TLS quick start guide](../../tls-setup).
 
 
 #### `enabled: false`
