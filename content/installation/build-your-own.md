@@ -7,7 +7,7 @@ Want to build your own? Great, that's the spirit! If you know git and commandlin
 
 #### Quick and easy
 
-1. First, you need [git](https://git-scm.com/) and [Go](https://golang.org/) installed. Once they are in place, clone the nray repository (TODO Link) and check out the desired branch. Official releases are built from `master` whereas the hot new stuff is located in `develop` or feature branches.
+1. First, you need [git](https://git-scm.com/) and [Go](https://golang.org/) installed. Once they are in place, clone the [nray repository](https://github.com/nray-scanner/nray) and check out the desired branch. Official releases are built from `master` whereas the hot new stuff is located in `develop` or feature branches.
 2. Open a terminal, navigate to the checked out folder and run `go get -u` followed by `go build` 
 3. **That's it!** You just built a nray binary for your system without any obvious magic involved!
 
