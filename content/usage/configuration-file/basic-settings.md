@@ -8,7 +8,7 @@ pre: <b>3.1.1 </b>
 
 #### `debug: false`
 
-Enables debug output *serverside*. 
+Enables debug output *server side*. 
 
 #### `listen: [8601]`
 
@@ -31,4 +31,4 @@ Clients may request to be placed in a specific pool. This is required when nodes
 This randomizes the nodeID, allowing to run multiple nodes on the same machine or in scenarios where no unique ID can be generated from the environment, for example container environments like Kubernetes.
 This is disabled by default because it is inconsistent with the environment information transmitted during node registration and makes it impossible to find out which node generated an event in the current implementation.
 Enabling this option does not break functionality and if nray is used on a single system or container cluster, the system that generated a specific event is probably of no interest. 
-In scenarios where nray runs on a heterogenous fleet, it may be relevant to track which system generated an event afterwards, so make sure to have this option disabled in those scenarios.
+In scenarios where nray runs on a heterogeneous fleet, it may be relevant to track which system generated an event afterwards, so make sure to have this option disabled in those scenarios.

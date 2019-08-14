@@ -6,7 +6,7 @@ pre: <b>1. </b>
 
 Nray is a sophisticated port scanner **built from scratch**. 
 
-Nray doesn't require administrative permissions and runs dependencyless on nearly any architecture and operating system. 
+Nray doesn't require administrative permissions and runs dependency-less on nearly any architecture and operating system. 
 Nevertheless, its scan speed is superior to Nmap in most cases while delivering nearly the same result quality regarding discovered ports.
 
 Apart from that, nray introduces fresh ideas when it comes to target selection and result processing:
@@ -18,7 +18,7 @@ Apart from that, nray introduces fresh ideas when it comes to target selection a
   - DNS zone transfer planned.
 - Output
   - An event stream encoded as JSON data allows to search and use the results while the scan is still running.
-  - Native elasticsearch integration: Scan results are stored in your elasticsearch cluster as they arive. Easily search and analyze the results of your network scans to gain valuable high-level insights.
+  - Native elasticsearch integration: Scan results are stored in your elasticsearch cluster as they arrive. Easily search and analyze the results of your network scans to gain valuable high-level insights.
   - Splunk and metasploit planned.
 - Modularity: Want to integrate your CMDB or network inventory to nray? You prefer .csv output because it opens in Excel? Target selection and event processing is built in a modular way, therefore it should not be too hard for you to adapt nray to your requirements.
 

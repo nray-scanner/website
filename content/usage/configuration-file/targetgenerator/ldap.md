@@ -4,7 +4,7 @@ weight: 7
 pre: <b>3.1.4.3 </b>
 ---
 
-The `ldap` target generator allows to connect to a ldap server in order to identify scan targets. Especially in Active Directory environments this is really useful since computer objects have a `dNSHostName` property and Donmain Controllers usually act also as DNS servers [that can be queried via LDAP](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/).
+The `ldap` target generator allows to connect to a ldap server in order to identify scan targets. Especially in Active Directory environments this is really useful since computer objects have a `dNSHostName` property and Domain Controllers usually act also as DNS servers [that can be queried via LDAP](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/).
 
 #### `enabled: false`
 
@@ -20,7 +20,7 @@ Base DN to start search.
 
 #### `ldapAttribute: "dNSHostName"`
 
-On all selected objects, extract `ldapAttribute`. This one is going to be scanned. In Active Directory envrionments, chances are that `dNSHostName` can be resolved and is alive.
+On all selected objects, extract `ldapAttribute`. This one is going to be scanned. In Active Directory environments, chances are that `dNSHostName` can be resolved and is alive.
 
 #### `ldapServer: ""`
 

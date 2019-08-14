@@ -30,4 +30,4 @@ The result produced are also in JSON format and fit into the events produced by 
 Which ZGrab2 modules to enable. Currently, the following modules are supported:
 
 - SSH
-- HTTP (includes HTTPs and various TLS checks)
+- HTTP (includes HTTPS and various TLS checks)

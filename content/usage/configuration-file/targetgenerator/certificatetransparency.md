@@ -7,7 +7,7 @@ pre: <b>3.1.4.2 </b>
 The `certificatetransparency` streams data from [certstream](https://certstream.calidog.io/), a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.
 
 {{% notice tip %}}
-This may come in handy for bug bounties - if this turns out to be the new bounty hunter's cash cow, the nray authors would love to receive a small tip for their voluntary work <i class="far fa-smile-wink"></i> 
+This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee <i class="far fa-smile-wink"></i>
 {{% /notice %}}
 
 #### `enabled: false`

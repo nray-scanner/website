@@ -11,7 +11,7 @@ Fast sends only known payloads to known ports. The list and payloads are taken f
 
 #### `defaultHexPayload: "\x6e\x72\x61\x79"`
 
-Since UDP is connectionless, a payload needs to be sent. 
+Since UDP is connection-less, a payload needs to be sent. 
 This option configures the default payload that is sent if no custom payload is specified for a port.
 ASCII is supported as well as hexadecimal and octal data representation.
 `\x6e\x72\x61\x79` is hexadecimal for `nray`.
@@ -27,4 +27,4 @@ customHexPayloads:
 
 #### `timeout: 2500ms`
 
-Timeout for UDP. If no response is received within this timeframe, a port is marked closed.
+Timeout for UDP. If no response is received within this time frame, a port is marked closed.

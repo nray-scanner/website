@@ -10,7 +10,7 @@ ZGrab2 integration is experimental and porting is currently not complete.
 {{% /notice %}}
 
 {{% notice info %}}
-The naming of this module's subscripton parameters differ from other ZGrab2 modules due to the need to differentiate between HTTP and HTTPS.
+The naming of this module's subscription parameters differ from other ZGrab2 modules due to the need to differentiate between HTTP and HTTPS.
 {{% /notice %}}
 
 #### `subscribeHTTPPorts: ["tcp/80", "tcp/8080", "tcp/8000"]`

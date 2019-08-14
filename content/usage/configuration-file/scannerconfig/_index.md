@@ -8,7 +8,7 @@ pre: <b>3.1.5.0 </b>
 
 How many asynchronous workers to spawn. 
 There are operating system restrictions to the number of open file descriptors of a process, e.g. 1024 on most modern Linux distributions.
-Since some of them are required for internal usage (e.g. communication with server), from experience 1000 is pretty much the best you may get on x64_linux whereas different limits may apply on other operating systems / architectues. 
+Since some of them are required for internal usage (e.g. communication with server), from experience 1000 is pretty much the best you may get on x64_linux whereas different limits may apply on other operating systems / architectures. 
   
 #### `ratelimit: "none"`
 
