@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zgrab2 on nray</title>
+    <link>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/</link>
+    <description>Recent content in zgrab2 on nray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ssh</title>
+      <link>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/ssh/</guid>
+      <description>ZGrab2 integration is experimental and porting is currently not complete. You can help adding modules and improve stability.
+ subscribePorts: [&amp;quot;tcp/22&amp;quot;] Ports to subscribe. If one of these is found open, this scanner module is triggered against that target.
+timeout: 2500ms Timeout before the scan is cancelled.
+ClientID: &amp;quot;SSH-2.0-Go-nray&amp;quot; SSH client ID to present to the server.
+CollectUserAuth: true If set to true, possible client authentication options are queried.</description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/http/</guid>
+      <description>ZGrab2 integration is experimental and porting is currently not complete. You can help adding modules and improve stability.
+ The naming of this module&amp;rsquo;s subscription parameters differ from other ZGrab2 modules due to the need to differentiate between HTTP and HTTPS.
+ subscribeHTTPPorts: [&amp;quot;tcp/80&amp;quot;, &amp;quot;tcp/8080&amp;quot;, &amp;quot;tcp/8000&amp;quot;] Ports to subscribe for HTTP scanning. If one of these is found open, the HTTP scanner module is triggered against that target.
+subscribeHTTPSPorts: [&amp;quot;tcp/443&amp;quot;, &amp;quot;tcp/8443&amp;quot;] Ports to subscribe for HTTPS scanning.</description>
+    </item>
+    
+  </channel>
+</rss>

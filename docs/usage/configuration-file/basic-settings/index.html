@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>Basic settings :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/configuration-file/basic-settings/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/" title="Configuration file (server)" class="dd-item 
-        
+        parent
         
         
         ">
@@ -221,7 +221,7 @@
  
   
     
-      <li data-nav-id="/usage/configuration-file/basic-settings/" title="Basic settings" class="dd-item ">
+      <li data-nav-id="/usage/configuration-file/basic-settings/" title="Basic settings" class="dd-item active">
         <a href="/usage/configuration-file/basic-settings/">
         <b>3.1.1 </b>Basic settings
         
@@ -746,36 +746,142 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/configuration-file/basic-settings.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > <a href='/usage/configuration-file/'>Configuration file (server)</a> > Basic settings
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#top-level-configuration-options">Top level configuration options</a>
+<ul>
+<li><a href="#debug-false"><code>debug: false</code></a></li>
+<li><a href="#listen-8601"><code>listen: [8601]</code></a></li>
+<li><a href="#host-127-0-0-1"><code>host: &quot;127.0.0.1&quot;</code></a></li>
+<li><a href="#pools-1"><code>pools: 1</code></a></li>
+<li><a href="#considerclientpoolpreference-true"><code>considerClientPoolPreference: true</code></a></li>
+<li><a href="#allowmultiplenodesperhost-false"><code>allowMultipleNodesPerHost: false</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Basic settings
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<h3 id="top-level-configuration-options">Top level configuration options</h3>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<h4 id="debug-false"><code>debug: false</code></h4>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<p>Enables debug output <em>server side</em>.</p>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
+<h4 id="listen-8601"><code>listen: [8601]</code></h4>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<p>The port to listen on. Multiple ports may be specified, e.g. <code>listen: [22, 80, 443, 3389]</code> to listen on ports 22, 80, 443 and 3389. This may make it easier for you to operate a server with nodes in different networks and firewall policies.</p>
+
+<h4 id="host-127-0-0-1"><code>host: &quot;127.0.0.1&quot;</code></h4>
+
+<p>The address to listen on. <code>&quot;0.0.0.0&quot;</code> listens on all interfaces whereas <code>&quot;127.0.0.1&quot;</code> only listens on the loopback interface. IPv6 may work, too, but this is has not been tested yet.</p>
+
+<h4 id="pools-1"><code>pools: 1</code></h4>
+
+<p>Configures the number of pools. Please refer to <a href="../pooling">pooling</a> for more information.</p>
+
+<h4 id="considerclientpoolpreference-true"><code>considerClientPoolPreference: true</code></h4>
+
+<p>Clients may request to be placed in a specific pool. This is required when nodes in a pool share specific properties, e.g. all nodes inside the same pool are in the same country.</p>
+
+<h4 id="allowmultiplenodesperhost-false"><code>allowMultipleNodesPerHost: false</code></h4>
+
+<p>This randomizes the nodeID, allowing to run multiple nodes on the same machine or in scenarios where no unique ID can be generated from the environment, for example container environments like Kubernetes.
+This is disabled by default because it is inconsistent with the environment information transmitted during node registration and makes it impossible to find out which node generated an event in the current implementation.
+Enabling this option does not break functionality and if nray is used on a single system or container cluster, the system that generated a specific event is probably of no interest.
+In scenarios where nray runs on a heterogeneous fleet, it may be relevant to track which system generated an event afterwards, so make sure to have this option disabled in those scenarios.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,20 +980,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -903,6 +995,23 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -919,6 +1028,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1380,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/" title="Configuration file (server)"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/configuration-file/tls/" title="TLS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

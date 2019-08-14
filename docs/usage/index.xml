@@ -6,10 +6,53 @@
     <description>Recent content in Usage on nray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2019 00:17:55 +0200</lastBuildDate>
     
 	<atom:link href="https://nray-scanner.org/usage/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Command line flags (node)</title>
+      <link>https://nray-scanner.org/usage/flags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/flags/</guid>
+      <description>Because nodes are going to deployed in a variety of scenarios in different environments, providing a configuration file is not viable. Most options are configured server side and transmitted when the node connects first, but at least the location and and connection settings (like TLS configuration) are required when a node is started.
+The following options apply when nray runs as node (nray node):
+--debug Enable debug output.
+-h, --help Print a help message.</description>
+    </item>
+    
+    <item>
+      <title>Pooling</title>
+      <link>https://nray-scanner.org/usage/pooling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/pooling/</guid>
+      <description>The core concept around nray&amp;rsquo;s work distribution functionality is pooling.
+Nray internally has a list of pools, how many can be specified via the pools: n directive in the configuration file. The idea is that each pool performs a scan of all targets, which means that each pool creates a complete view. Each pool may contain an arbitrary number of scanner nodes that work together on performing the scan.
+This means that speeding up a scan by bringing more workers in is achieved by placing them all in the same pool whereas creation of network views is done by creating a pool for each desired view.</description>
+    </item>
+    
+    <item>
+      <title>TLS setup</title>
+      <link>https://nray-scanner.org/usage/tls-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/tls-setup/</guid>
+      <description>It is recommended to use TLS for protecting traffic between nray&amp;rsquo;s server and nodes, including mutual authentication if required. This quick start guide describes a portable and working approach to generate a CA and all required keys and certificates as well as how to use them. The goal is to provide an easy to follow guide, nevertheless a basic understanding of TLS and PKI is recommended.
+This guide relies on cloudflare&amp;rsquo;s open source cfssl.</description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://nray-scanner.org/usage/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/examples/</guid>
+      <description>This page contains some examples to get your nray experience started quickly.
+All examples assume that the binary is called nray, of course you have to adapt this to the name of your binary.
+Simple port scan from local machine Unfortunately, due to a bug in the upstream project of the configuration parser, currently some options mustn&amp;rsquo;t be omitted. See this issue for more information. The following configuration has therefore all options listed, albeit most of them are disabled.</description>
+    </item>
     
   </channel>
 </rss>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>udp :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/configuration-file/scannerconfig/udp/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/" title="Configuration file (server)" class="dd-item 
-        
+        parent
         
         
         ">
@@ -370,7 +370,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/scannerconfig/" title="scannerconfig" class="dd-item 
-        
+        parent
         
         
         ">
@@ -415,7 +415,7 @@
  
   
     
-      <li data-nav-id="/usage/configuration-file/scannerconfig/udp/" title="udp" class="dd-item ">
+      <li data-nav-id="/usage/configuration-file/scannerconfig/udp/" title="udp" class="dd-item active">
         <a href="/usage/configuration-file/scannerconfig/udp/">
         <b>3.1.5.2 </b>udp
         
@@ -746,36 +746,137 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/configuration-file/scannerconfig/udp.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > <a href='/usage/configuration-file/'>Configuration file (server)</a> > <a href='/usage/configuration-file/scannerconfig/'>scannerconfig</a> > udp
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#fast-false"><code>fast: false</code></a></li>
+<li><a href="#defaulthexpayload-x6e-x72-x61-x79"><code>defaultHexPayload: &quot;\x6e\x72\x61\x79&quot;</code></a></li>
+<li><a href="#customhexpayloads"><code>customHexPayloads:</code></a></li>
+<li><a href="#timeout-2500ms"><code>timeout: 2500ms</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              udp
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<h4 id="fast-false"><code>fast: false</code></h4>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<p>Fast sends only known payloads to known ports. The list and payloads are taken from the Metasploit project and it contains currently UDP ports 1604, 53, 137, 123, 524, 5093, 1434, 161, and 111.</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<h4 id="defaulthexpayload-x6e-x72-x61-x79"><code>defaultHexPayload: &quot;\x6e\x72\x61\x79&quot;</code></h4>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
+<p>Since UDP is connection-less, a payload needs to be sent.
+This option configures the default payload that is sent if no custom payload is specified for a port.
+ASCII is supported as well as hexadecimal and octal data representation.
+<code>\x6e\x72\x61\x79</code> is hexadecimal for <code>nray</code>.</p>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<h4 id="customhexpayloads"><code>customHexPayloads:</code></h4>
+
+<p>Allows to specify custom payloads for specific ports. The example below sends a single <code>'A'</code> character to udp/19:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">customHexPayloads: 
+  <span style="color:#e6db74">&#34;19&#34;</span>: <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#75715e"># chargen. &#34;A&#34; is the same as &#34;\x41&#34; (hex) or &#34;\101&#34; (oct)</span></code></pre></div>
+<h4 id="timeout-2500ms"><code>timeout: 2500ms</code></h4>
+
+<p>Timeout for UDP. If no response is received within this time frame, a port is marked closed.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,20 +975,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -903,6 +990,25 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1016,6 +1122,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1030,6 +1137,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1047,6 +1157,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1062,6 +1173,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1382,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/scannerconfig/tcp/" title="tcp"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/configuration-file/scannerconfig/zgrab2/" title="zgrab2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

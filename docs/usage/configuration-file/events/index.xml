@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>events on nray</title>
+    <link>https://nray-scanner.org/usage/configuration-file/events/</link>
+    <description>Recent content in events on nray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://nray-scanner.org/usage/configuration-file/events/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>terminal</title>
+      <link>https://nray-scanner.org/usage/configuration-file/events/terminal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/events/terminal/</guid>
+      <description>enabled: true Enables printing of events to stdout.
+internal.channelsize: 1000 Size of the internal channel holding events.</description>
+    </item>
+    
+    <item>
+      <title>json-file</title>
+      <link>https://nray-scanner.org/usage/configuration-file/events/json-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/events/json-file/</guid>
+      <description>enabled: true Enables logging of events to a file.
+filename: &amp;quot;nray-output.json&amp;quot; The filename to log to.
+overwriteExisting: false If set to false, this option prevents from (accidentally) overwriting existing output files.
+internal.channelsize: 10000 Size of the internal buffer holding events between force flushing to file system.
+internal.synctimer: 10s Interval to flush data to the file system.</description>
+    </item>
+    
+    <item>
+      <title>elasticsearch</title>
+      <link>https://nray-scanner.org/usage/configuration-file/events/elasticsearch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/events/elasticsearch/</guid>
+      <description>enabled: false Enables the elasticsearch event handler. If true, all events are also sent to elasticsearch. This is useful for performing queries or visualizing data, e.g. using Kibana.
+server: &amp;quot;elasticsearch.local&amp;quot; The name or IP address of the elasticsearch node.
+useTLS: true Forces use of TLS.
+port: 443 TCP port elasticsearch is listening on.
+internal.indexname: &amp;quot;nray&amp;quot; The name of the index.
+internal.channelsize: 10000 Size of the internal buffer holding events between commits.</description>
+    </item>
+    
+  </channel>
+</rss>

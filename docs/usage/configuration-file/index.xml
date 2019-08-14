@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration file (server) on nray</title>
+    <link>https://nray-scanner.org/usage/configuration-file/</link>
+    <description>Recent content in Configuration file (server) on nray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://nray-scanner.org/usage/configuration-file/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Basic settings</title>
+      <link>https://nray-scanner.org/usage/configuration-file/basic-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/basic-settings/</guid>
+      <description>Top level configuration options debug: false Enables debug output server side.
+listen: [8601] The port to listen on. Multiple ports may be specified, e.g. listen: [22, 80, 443, 3389] to listen on ports 22, 80, 443 and 3389. This may make it easier for you to operate a server with nodes in different networks and firewall policies.
+host: &amp;quot;127.0.0.1&amp;quot; The address to listen on. &amp;quot;0.0.0.0&amp;quot; listens on all interfaces whereas &amp;quot;127.</description>
+    </item>
+    
+    <item>
+      <title>TLS</title>
+      <link>https://nray-scanner.org/usage/configuration-file/tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/tls/</guid>
+      <description>TLS If you are running nray in any other than your home network, make sure to enable TLS or you are going to have a bad time! If you don&amp;rsquo;t know what TLS is or don&amp;rsquo;t have a basic understanding of how these parameters play together, you should not run nray over untrusted networks!
+ Nray relies on Golang, more specifically mangos, to provide support for TLS 1.2. TLS works with key material created by following the instructions of the TLS quick start guide.</description>
+    </item>
+    
+    <item>
+      <title>Internal</title>
+      <link>https://nray-scanner.org/usage/configuration-file/internal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/usage/configuration-file/internal/</guid>
+      <description>internal Everything called internal is&amp;hellip; well internal and you should only change it if you know what you are doing. This also applies to internal objects exposed by other configuration nodes.
+ nodeExpiryTime: 30s Timeout to expire nodes that did not send heart beats.
+nodeExpiryCheckInterval: 10s How often to check for expired nodes.</description>
+    </item>
+    
+  </channel>
+</rss>

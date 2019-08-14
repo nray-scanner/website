@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>targetgenerator :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/configuration-file/targetgenerator/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/" title="Configuration file (server)" class="dd-item 
-        
+        parent
         
         
         ">
@@ -279,8 +279,8 @@
   
     
     <li data-nav-id="/usage/configuration-file/targetgenerator/" title="targetgenerator" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/usage/configuration-file/targetgenerator/">
@@ -746,36 +746,133 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/configuration-file/targetgenerator/_index.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > <a href='/usage/configuration-file/'>Configuration file (server)</a> > targetgenerator
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#buffersize-5"><code>bufferSize: 5</code></a></li>
+</ul></li>
+<li><a href="#a-note-on-work-scheduling">A note on work scheduling</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              targetgenerator
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
-
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
-
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
-
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
-
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
-
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
 	
-  
+
+<p>Everything that produces a stream of targets that need to be scanned is a target generator.
+Due to the modular design, it should be easy to implement your own generators from your data sources.</p>
+
+<h4 id="buffersize-5"><code>bufferSize: 5</code></h4>
+
+<p>Size of the work batch buffer. If you are planning to have a lot of nodes or a lossy data input stream, you may increase this number, otherwise it simply consumes a little bit more memory.</p>
+
+<h3 id="a-note-on-work-scheduling">A note on work scheduling</h3>
+
+<p>Understanding how nray schedules work may allow you to greatly improve performance. In order to explain the inner workings in greater detail, take a look at following configuration of the standard target generator:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">targets: [<span style="color:#e6db74">&#34;10.0.0.0/22&#34;</span>]
+tcpports: [<span style="color:#e6db74">&#34;top500&#34;</span>]
+udpports: [<span style="color:#e6db74">&#34;&#34;</span>]
+maxHostsPerBatch: <span style="color:#ae81ff">150</span>
+maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span></code></pre></div>
+<p>In this case, the network consists of about 1000 hosts to scan for the 500 most common TCP ports. In order to distribute this task across nodes, nray chops it into pieces, so called <em>work batches</em> that are requested and processed by nodes. In this case, each batch is going to contain a list of 150 hosts and 25 TCP ports that have to be scanned on these hosts. In order to scan all hosts, 7 batches would be enough, but there is also the port restriction. Each batch must not contain more than 25 ports, therefore 20 batches are required to scan all TCP ports for a single host group. In the end, <code>7 * 20 = 140</code> batches are created for the above configuration.</p>
+
+<p>In case for example only ports 22, 80 and 443 are of interest, you may scale up <code>maxHostsPerBatch</code> whereas if you only want to scan a few hosts but on a large number of ports, you may advise nray to create batches containing only one or two hosts, but for example 10000 ports.</p>
+
+<p>A good rule of thumb is to find a configuration such that nodes call back for more work every ~15-20 seconds - this gives you results often and fast and in case a node gets lost, fewer work has to be rescheduled.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
         
         </div> 
         
@@ -874,20 +971,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -903,6 +986,25 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -952,6 +1054,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -964,6 +1067,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1374,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/internal/" title="Internal"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/configuration-file/targetgenerator/standard/" title="standard" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1300,4 +1408,3 @@
 
   </body>
 </html>
-

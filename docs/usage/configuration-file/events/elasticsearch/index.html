@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>elasticsearch :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/configuration-file/events/elasticsearch/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/" title="Configuration file (server)" class="dd-item 
-        
+        parent
         
         
         ">
@@ -516,7 +516,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/events/" title="events" class="dd-item 
-        
+        parent
         
         
         ">
@@ -578,7 +578,7 @@
  
   
     
-      <li data-nav-id="/usage/configuration-file/events/elasticsearch/" title="elasticsearch" class="dd-item ">
+      <li data-nav-id="/usage/configuration-file/events/elasticsearch/" title="elasticsearch" class="dd-item active">
         <a href="/usage/configuration-file/events/elasticsearch/">
         <b>3.1.6.3 </b>elasticsearch
         
@@ -746,36 +746,148 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/configuration-file/events/elasticsearch.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > <a href='/usage/configuration-file/'>Configuration file (server)</a> > <a href='/usage/configuration-file/events/'>events</a> > elasticsearch
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#enabled-false"><code>enabled: false</code></a></li>
+<li><a href="#server-elasticsearch-local"><code>server: &quot;elasticsearch.local&quot;</code></a></li>
+<li><a href="#usetls-true"><code>useTLS: true</code></a></li>
+<li><a href="#port-443"><code>port: 443</code></a></li>
+<li><a href="#internal-indexname-nray"><code>internal.indexname: &quot;nray&quot;</code></a></li>
+<li><a href="#internal-channelsize-10000"><code>internal.channelsize: 10000</code></a></li>
+<li><a href="#internal-committimer-3"><code>internal.committimer: 3</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              elasticsearch
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<h4 id="enabled-false"><code>enabled: false</code></h4>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<p>Enables the elasticsearch event handler. If true, all events are also sent to elasticsearch. This is useful for performing queries or visualizing data, e.g. using Kibana.</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<h4 id="server-elasticsearch-local"><code>server: &quot;elasticsearch.local&quot;</code></h4>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
+<p>The name or IP address of the elasticsearch node.</p>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<h4 id="usetls-true"><code>useTLS: true</code></h4>
+
+<p>Forces use of TLS.</p>
+
+<h4 id="port-443"><code>port: 443</code></h4>
+
+<p>TCP port elasticsearch is listening on.</p>
+
+<h4 id="internal-indexname-nray"><code>internal.indexname: &quot;nray&quot;</code></h4>
+
+<p>The name of the index.</p>
+
+<h4 id="internal-channelsize-10000"><code>internal.channelsize: 10000</code></h4>
+
+<p>Size of the internal buffer holding events between commits.</p>
+
+<h4 id="internal-committimer-3"><code>internal.committimer: 3</code></h4>
+
+<p>Interval to commit data.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,20 +986,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -903,6 +1001,25 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1114,6 +1231,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1121,6 +1239,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1143,21 +1280,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1180,6 +1302,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1393,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/events/json-file/" title="json-file"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/flags/" title="Command line flags (node)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

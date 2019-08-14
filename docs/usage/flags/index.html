@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>Command line flags (node) :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/flags/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -615,7 +615,7 @@
  
   
     
-      <li data-nav-id="/usage/flags/" title="Command line flags (node)" class="dd-item ">
+      <li data-nav-id="/usage/flags/" title="Command line flags (node)" class="dd-item active">
         <a href="/usage/flags/">
         <b>3.2 </b>Command line flags (node)
         
@@ -746,36 +746,166 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/flags.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > Command line flags (node)
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#debug"><code>--debug</code></a></li>
+<li><a href="#h-help"><code>-h, --help</code></a></li>
+<li><a href="#node-name-name"><code>--node-name &lt;name&gt;</code></a></li>
+<li><a href="#p-port-port-number"><code>-p, --port &lt;port number&gt;</code></a></li>
+<li><a href="#preferred-pool-pool-number"><code>--preferred-pool &lt;pool number&gt;</code></a></li>
+<li><a href="#s-server-server-address-or-name"><code>-s, --server &lt;server address or name&gt;</code></a></li>
+<li><a href="#tls-ca-cert-path"><code>--tls-ca-cert &lt;path&gt;</code></a></li>
+<li><a href="#tls-client-cert-path"><code>--tls-client-cert &lt;path&gt;</code></a></li>
+<li><a href="#tls-client-key-path"><code>--tls-client-key &lt;path&gt;</code></a></li>
+<li><a href="#tls-insecure"><code>--tls-insecure</code></a></li>
+<li><a href="#tls-server-san-subject-alternative-name-of-server"><code>--tls-server-SAN &lt;subject alternative name of server&gt;</code></a></li>
+<li><a href="#use-tls"><code>--use-tls</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Command line flags (node)
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<p>Because nodes are going to deployed in a variety of scenarios in different environments, providing a configuration file is not viable.
+Most options are configured server side and transmitted when the node connects first, but at least the location and and connection settings (like TLS configuration) are required when a node is started.</p>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<p>The following options apply when nray runs as node (<code>nray node</code>):</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<h4 id="debug"><code>--debug</code></h4>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
+<p>Enable debug output.</p>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<h4 id="h-help"><code>-h, --help</code></h4>
+
+<p>Print a help message.</p>
+
+<h4 id="node-name-name"><code>--node-name &lt;name&gt;</code></h4>
+
+<p>Assign a name to this scanning node. Useful if you are running multiple nodes and want to distinguish results in the event logs.</p>
+
+<h4 id="p-port-port-number"><code>-p, --port &lt;port number&gt;</code></h4>
+
+<p>Nray server port. Usually 8601.</p>
+
+<h4 id="preferred-pool-pool-number"><code>--preferred-pool &lt;pool number&gt;</code></h4>
+
+<p>Pool to be preferably placed in at the server. If configured, the server respects this as long as the pool exists.</p>
+
+<h4 id="s-server-server-address-or-name"><code>-s, --server &lt;server address or name&gt;</code></h4>
+
+<p>Nray server address.</p>
+
+<h4 id="tls-ca-cert-path"><code>--tls-ca-cert &lt;path&gt;</code></h4>
+
+<p>Path to ca certificate if TLS is used. Requires <code>--use-tls</code>.</p>
+
+<h4 id="tls-client-cert-path"><code>--tls-client-cert &lt;path&gt;</code></h4>
+
+<p>Path to tls client cert. Requires <code>--use-tls</code>.</p>
+
+<h4 id="tls-client-key-path"><code>--tls-client-key &lt;path&gt;</code></h4>
+
+<p>Path to tls client key. Requires <code>--use-tls</code>.</p>
+
+<h4 id="tls-insecure"><code>--tls-insecure</code></h4>
+
+<p>Literally. Trust anybody. Don&rsquo;t do this in networks you do not fully trust. Requires <code>--use-tls</code>.</p>
+
+<h4 id="tls-server-san-subject-alternative-name-of-server"><code>--tls-server-SAN &lt;subject alternative name of server&gt;</code></h4>
+
+<p>Subject alternative name of the server. Go&rsquo;s TLS implementation checks this value against the values provided in the certificate and refuses to connect if no match is found.</p>
+
+<h4 id="use-tls"><code>--use-tls</code></h4>
+
+<p>Set true to use TLS.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,6 +1004,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -888,6 +1019,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -914,117 +1048,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -1103,6 +1126,117 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1181,6 +1315,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1196,6 +1331,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1406,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/events/elasticsearch/" title="elasticsearch"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/pooling/" title="Pooling" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

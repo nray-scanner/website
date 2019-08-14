@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>TLS setup :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/tls-setup/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -653,7 +653,7 @@
  
   
     
-      <li data-nav-id="/usage/tls-setup/" title="TLS setup" class="dd-item ">
+      <li data-nav-id="/usage/tls-setup/" title="TLS setup" class="dd-item active">
         <a href="/usage/tls-setup/">
         <b>3.4 </b>TLS setup
         
@@ -746,36 +746,189 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/tls-setup.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > TLS setup
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#cfssl-generate-local-ca-keys-and-certificates">CFSSL: Generate local CA, keys and certificates</a></li>
+<li><a href="#what-you-need-for-operation">What you need for operation</a>
+<ul>
+<li><a href="#server">Server</a></li>
+<li><a href="#node">Node</a></li>
+</ul></li>
+<li><a href="#howto-run">HowTo run</a>
+<ul>
+<li><a href="#trust-every-server-no-client-auth">Trust every server, no client auth</a></li>
+<li><a href="#trust-only-this-server-no-client-auth">Trust only this server, no client auth</a></li>
+<li><a href="#trust-only-this-server-client-authentication">Trust only this server, client authentication</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              TLS setup
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<p>It is recommended to use TLS for protecting traffic between nray&rsquo;s server and nodes, including mutual authentication if required.
+This quick start guide describes a portable and working approach to generate a CA and all required keys and certificates as well as how to use them.
+The goal is to provide an easy to follow guide, nevertheless a basic understanding of TLS and PKI is recommended.</p>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<p>This guide relies on cloudflare&rsquo;s open source <a href="https://cfssl.org/">cfssl</a>.
+Cherry-picked from <a href="https://gist.github.com/denji/12b3a568f092ab951456">here</a> and <a href="https://kb.op5.com/pages/viewpage.action?pageId=19073746">here</a> and <a href="https://github.com/jcbsmpsn/golang-https-example">here</a> and of course <a href="https://github.com/cloudflare/cfssl">here</a>.</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<p>If you manage to get this up and running using keys and certificates generated by OpenSSL, Microsoft PKI, vim macro or your favorite solution not listed yet, we would love to know how you did it - simply edit this page and send a pull request!</p>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
+<h3 id="cfssl-generate-local-ca-keys-and-certificates">CFSSL: Generate local CA, keys and certificates</h3>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<ol>
+<li>Get cfssl: <code>go get -u github.com/cloudflare/cfssl/cmd/cfssl</code> and <code>go get -u github.com/cloudflare/cfssl/cmd/cfssljson</code></li>
+
+<li><p>Generate a CSR and save it to a file, e.g. <code>csr.json</code>. It contains basic information about the CA:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
+<span style="color:#f92672">&#34;key&#34;</span>: {
+    <span style="color:#f92672">&#34;algo&#34;</span>: <span style="color:#e6db74">&#34;rsa&#34;</span>,
+    <span style="color:#f92672">&#34;size&#34;</span>: <span style="color:#ae81ff">2048</span>
+},
+<span style="color:#f92672">&#34;names&#34;</span>: [
+    {
+        <span style="color:#f92672">&#34;C&#34;</span>:  <span style="color:#e6db74">&#34;DE&#34;</span>,
+        <span style="color:#f92672">&#34;L&#34;</span>:  <span style="color:#e6db74">&#34;Munich&#34;</span>,
+        <span style="color:#f92672">&#34;O&#34;</span>:  <span style="color:#e6db74">&#34;nray-scanner&#34;</span>
+    }
+]
+}</code></pre></div></li>
+
+<li><p>Generate a local CA: <code>cfssl  genkey -initca csr.json | cfssljson -bare ca</code>. This creates <code>ca-key.pem</code>, the CA&rsquo;s private key, as well as <code>ca.pem</code>, the certificate and <code>ca.csr</code> which is of no further use and may be deleted.</p></li>
+
+<li><p>Generate server certificate. If the host where nray is going to run has a DNS name, you may include it here, otherwise keep localhost: <code>cfssl gencert -ca ca.pem -ca-key ca-key.pem -hostname=localhost csr.json | cfssljson -bare server</code>. This creates files analogous to our CA, but with <code>server*</code> in their names.</p></li>
+
+<li><p>(if node auth is desired) Generate node certificate. Analogous to server. You may omit the hostname field and ignore the warning. Repeat for every node or reuse certificate.</p></li>
+</ol>
+
+<p>As you do not need the csr&rsquo;s anymore, you may delete them if you want.</p>
+
+<h3 id="what-you-need-for-operation">What you need for operation</h3>
+
+<h4 id="server">Server</h4>
+
+<ul>
+<li><code>ca.pem</code> (This is public knowledge btw)</li>
+<li><code>server.pem</code> (public if you want)</li>
+<li><code>server-key.pem</code> (private)</li>
+</ul>
+
+<h4 id="node">Node</h4>
+
+<ul>
+<li><code>ca.pem</code> (This is public knowledge btw)</li>
+<li><code>client.pem</code> (public if you want)</li>
+<li><code>client-key.pem</code> (private)</li>
+</ul>
+
+<h3 id="howto-run">HowTo run</h3>
+
+<h4 id="trust-every-server-no-client-auth">Trust every server, no client auth</h4>
+
+<ul>
+<li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
+<li>Node: <code>./nray node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-insecure</code>. <strong>This is insecure and traffic may be intercepted/modified by a 3rd party!</strong>. This mode of operation only protects from somebody occasionally scrolling over the traffic in Wireshark.</li>
+</ul>
+
+<h4 id="trust-only-this-server-no-client-auth">Trust only this server, no client auth</h4>
+
+<ul>
+<li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
+<li>Node: <code>./nray node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-ca-cert /path/to/your/ca.pem --tls-server-SAN &quot;&lt;hostname&gt;&quot;</code>. If the nray-server has actually a DNS name that is also reflected in the cert, you can omit <code>--tls-server-SAN</code>, but if you are in an ad-hoc scenario or there is no DNS available and nray complains that the server name is missing, <code>--tls-server-SAN</code> is your friend.</li>
+</ul>
+
+<h4 id="trust-only-this-server-client-authentication">Trust only this server, client authentication</h4>
+
+<ul>
+<li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
+<li>Node: <code>./nray-node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-ca-cert /path/to/your/ca.pem --tls-server-SAN &quot;&lt;hostname&gt;&quot; --tls-client-cert /path/to/your/client.pem --tls-client-key /path/to/your/client-key.pem</code>. If the nray-server has actually a DNS name that is also reflected in the cert, you can omit <code>--tls-server-SAN</code>, but if you are in an ad-hoc scenario or there is no DNS available and nray complains that the server name is missing, <code>--tls-server-SAN</code> is your friend.</li>
+</ul>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,6 +1027,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -888,6 +1042,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -914,117 +1071,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -1103,6 +1149,117 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1213,6 +1370,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1228,6 +1386,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1429,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/pooling/" title="Pooling"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/examples/" title="Examples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

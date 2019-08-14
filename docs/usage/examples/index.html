@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>Examples :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/examples/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -672,7 +672,7 @@
  
   
     
-      <li data-nav-id="/usage/examples/" title="Examples" class="dd-item ">
+      <li data-nav-id="/usage/examples/" title="Examples" class="dd-item active">
         <a href="/usage/examples/">
         <b>3.5 </b>Examples
         
@@ -746,36 +746,250 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/examples.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > Examples
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#simple-port-scan-from-local-machine">Simple port scan from local machine</a></li>
+<li><a href="#jq-library">jq library</a>
+<ul>
+<li><a href="#show-all-events-where-port-22-was-involved">Show all events where port 22 was involved</a></li>
+<li><a href="#show-all-events-where-tcp-port-80-was-found-open">Show all events where tcp port 80 was found open</a></li>
+<li><a href="#show-only-ips-names-of-systems-where-tcp-port-80-was-found-open">Show only IPs/names of systems where tcp port 80 was found open</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Examples
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<p>This page contains some examples to get your nray experience started quickly.</p>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
+<p>All examples assume that the binary is called <code>nray</code>, of course you have to adapt this to the name of your binary.</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<h3 id="simple-port-scan-from-local-machine">Simple port scan from local machine</h3>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<div class="notices warning" ><p>Unfortunately, due to a bug in the upstream project of the configuration parser, currently some options mustn&rsquo;t be omitted. See <a href="https://github.com/nray-scanner/nray/issues/6">this issue</a> for more information. The following configuration has therefore all options listed, albeit most of them are disabled. The relevant settings are marked with a comment.</p>
+</div>
+
+
+<ul>
+<li><p>Edit the configuration file (e.g. <code>config.yaml</code>) to contain the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">debug: <span style="color:#66d9ef">false</span> 
+listen: [<span style="color:#ae81ff">8601</span>] <span style="color:#75715e"># Port to listen</span>
+host: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span> <span style="color:#75715e"># host to listen (only localhost)</span>
+pools: <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Only use a single pool</span>
+
+TLS:
+enabled: <span style="color:#66d9ef">false</span>
+CA: <span style="color:#e6db74">&#34;/path/to/ca.pem&#34;</span>
+cert: <span style="color:#e6db74">&#34;/path/to/servercert.pem&#34;</span>
+key: <span style="color:#e6db74">&#34;/path/to/servercert-key.pem&#34;</span>
+forceClientAuth: <span style="color:#66d9ef">false</span>
+
+considerClientPoolPreference: <span style="color:#66d9ef">true</span>
+allowMultipleNodesPerHost: <span style="color:#66d9ef">false</span>
+internal:
+nodeExpiryTime: <span style="color:#ae81ff">30</span>
+nodeExpiryCheckInterval: <span style="color:#ae81ff">10</span>
+
+targetgenerator:
+bufferSize: <span style="color:#ae81ff">5</span>
+standard:
+enabled: <span style="color:#66d9ef">true</span>
+targets: [<span style="color:#e6db74">&#34;192.168.178.1/28&#34;</span>] <span style="color:#75715e"># target network to scan</span>
+tcpports: [<span style="color:#e6db74">&#34;top25&#34;</span>] <span style="color:#75715e"># which TCP ports to scan</span>
+udpports: [] <span style="color:#75715e"># don&#39;t scan UDP</span>
+blacklist: [] <span style="color:#75715e"># no blacklist</span>
+maxHostsPerBatch: <span style="color:#ae81ff">20</span>
+maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
+maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
+certificatetransparency:
+enabled: <span style="color:#66d9ef">false</span>
+domainRegex: <span style="color:#e6db74">&#39;^(www[.]).*([.]com)$&#39;</span>
+tcpports: [top25]
+udpports: [top25]
+blacklist: []
+maxHostsPerBatch: <span style="color:#ae81ff">150</span>
+maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
+maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
+ldap:
+enabled: <span style="color:#66d9ef">false</span>
+ldapSearchString: <span style="color:#e6db74">&#34;(objectCategory=computer)&#34;</span>
+baseDN: <span style="color:#e6db74">&#34;dc=contoso,dc=com&#34;</span>
+ldapAttribute: <span style="color:#e6db74">&#34;dNSHostName&#34;</span>
+ldapServer: <span style="color:#e6db74">&#34;&#34;</span>
+ldapPort: <span style="color:#ae81ff">636</span>
+insecure: <span style="color:#66d9ef">false</span>
+ldapUser: <span style="color:#e6db74">&#34;&#34;</span>
+ldapPass: <span style="color:#e6db74">&#34;&#34;</span>
+tcpports: [top25]
+udpports: [top25]
+blacklist: []
+maxHostsPerBatch: <span style="color:#ae81ff">5</span>
+maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
+maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
+scannerconfig:
+workers: <span style="color:#ae81ff">250</span> <span style="color:#75715e"># Run with 250 workers</span>
+ratelimit: <span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#75715e"># No rate limit</span>
+tcp:
+timeout: 2500ms <span style="color:#75715e"># 2.5s TCP timeout</span>
+udp:
+fast: <span style="color:#66d9ef">false</span>
+defaultHexPayload: <span style="color:#e6db74">&#34;\x6e\x72\x61\x79&#34;</span>
+timeout: 2500ms
+zgrab2:
+enabledModules: []
+ssh:
+  subscribePorts: [<span style="color:#e6db74">&#34;tcp/22&#34;</span>]
+  timeout: 2500ms
+  ClientID: <span style="color:#e6db74">&#34;SSH-2.0-Go-nray&#34;</span> 
+  CollectUserAuth: <span style="color:#66d9ef">true</span>
+http:
+  subscribeHTTPPorts: [<span style="color:#e6db74">&#34;tcp/80&#34;</span>, <span style="color:#e6db74">&#34;tcp/8080&#34;</span>, <span style="color:#e6db74">&#34;tcp/8000&#34;</span>]
+  subscribeHTTPSPorts: [<span style="color:#e6db74">&#34;tcp/443&#34;</span>, <span style="color:#e6db74">&#34;tcp/8443&#34;</span>]
+  timeout: 2500ms
+  method: <span style="color:#e6db74">&#34;GET&#34;</span>
+  endpoint: <span style="color:#e6db74">&#34;/&#34;</span>
+  userAgent: <span style="color:#e6db74">&#34;nray&#34;</span> 
+  retryHTTPS: <span style="color:#66d9ef">true</span> 
+  maxRedirects: <span style="color:#ae81ff">2</span>
+events:
+terminal:
+enabled: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># print events to terminal</span>
+internal:
+  channelsize: <span style="color:#ae81ff">1000</span>
+json-file: 
+enabled: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># write events to file</span>
+filename: <span style="color:#e6db74">&#34;nray-output.json&#34;</span> <span style="color:#75715e"># filename</span>
+overwriteExisting: <span style="color:#66d9ef">false</span> 
+internal:
+  channelsize: <span style="color:#ae81ff">10000</span> 
+  synctimer: 10s
+elasticsearch:
+enabled: <span style="color:#66d9ef">false</span>
+server: <span style="color:#e6db74">&#34;elasticsearch.local&#34;</span>
+useTLS: <span style="color:#66d9ef">true</span>
+port: <span style="color:#ae81ff">443</span>
+internal:
+  indexname: <span style="color:#e6db74">&#34;nray&#34;</span>
+  channelsize: <span style="color:#ae81ff">10000</span>
+  committimer: <span style="color:#ae81ff">3</span></code></pre></div></li>
+
+<li><p>Next, run the server: <code>./nray server -c /path/to/config.yaml</code>.</p></li>
+
+<li><p>Finally, run a node on the same system: <code>./nray node</code>. If no server and port is specified, nodes always try to connect to localhost:8601 whereas other values can be injected at compile time or can be passed via <code>-s &lt;server&gt;</code> and <code>-p &lt;port&gt;</code> parameter.</p></li>
+
+<li><p>If there are systems in the network having ports opened, you should now see events for each port found.</p></li>
+
+<li><p>Results are also written to <code>nray-output.json</code></p></li>
+</ul>
+
+<h3 id="jq-library">jq library</h3>
+
+<p><a href="https://stedolan.github.io/jq/">jq</a> is an excellent command line JSON processor.
+It allows to view and query JSON documents and you may give it a shot for accessing the event file.</p>
+
+
+<div class="notices tip" ><p>For live viewing, <code>jq -C '&lt;expr&gt;' &lt;outputfile&gt; | less -R</code> gives you scrollable, colorized output. During a scan, you can also <code>tail -f &lt;outputfile&gt; | jq '&lt;expr&gt;'</code>.</p>
+</div>
+
+
+<p>Here are some example queries to get you started:</p>
+
+<h4 id="show-all-events-where-port-22-was-involved">Show all events where port 22 was involved</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.port == 22)&#39;</span> &lt;outputfile&gt;</code></pre></div>
+<p>This includes TCP, UDP and ZGrab2 events.</p>
+
+<h4 id="show-all-events-where-tcp-port-80-was-found-open">Show all events where tcp port 80 was found open</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;)&#39;</span> &lt;outputfile&gt;</code></pre></div>
+<p>Actually, the <code>result.portscan.open</code> can be omitted since closed ports do not generate events.</p>
+
+<h4 id="show-only-ips-names-of-systems-where-tcp-port-80-was-found-open">Show only IPs/names of systems where tcp port 80 was found open</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;) | .result.target&#39;</span> &lt;outputfile&gt;</code></pre></div>
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,6 +1088,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -888,6 +1103,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -914,117 +1132,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -1103,6 +1210,117 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1229,6 +1447,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1247,6 +1466,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1490,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/tls-setup/" title="TLS setup"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/contribute/" title="Contribute" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

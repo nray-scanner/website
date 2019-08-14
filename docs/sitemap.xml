@@ -4,37 +4,118 @@
   
   <url>
     <loc>https://nray-scanner.org/</loc>
-    <lastmod>2019-04-06T17:42:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/targetgenerator/standard/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/targetgenerator/certificatetransparency/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/targetgenerator/ldap/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/basic-settings/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/</loc>
   </url>
   
   <url>
     <loc>https://nray-scanner.org/introduction/</loc>
-    <lastmod>2019-04-07T00:17:59+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nray-scanner.org/installation/prebuilt/</loc>
-    <lastmod>2019-04-07T00:31:27+02:00</lastmod>
+    <loc>https://nray-scanner.org/usage/flags/</loc>
   </url>
   
   <url>
     <loc>https://nray-scanner.org/installation/</loc>
-    <lastmod>2019-04-07T00:17:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/tls/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/installation/prebuilt/</loc>
   </url>
   
   <url>
     <loc>https://nray-scanner.org/installation/build-your-own/</loc>
-    <lastmod>2019-04-07T00:31:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/internal/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/pooling/</loc>
   </url>
   
   <url>
     <loc>https://nray-scanner.org/usage/</loc>
-    <lastmod>2019-04-07T00:17:55+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://nray-scanner.org/contribute/</loc>
-    <lastmod>2019-04-07T00:17:50+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/tls-setup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/targetgenerator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/tcp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/udp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/ssh/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/scannerconfig/zgrab2/http/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/events/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/events/terminal/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/events/json-file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://nray-scanner.org/usage/configuration-file/events/elasticsearch/</loc>
   </url>
   
   <url>

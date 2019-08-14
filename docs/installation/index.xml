@@ -6,7 +6,6 @@
     <description>Recent content in Installation on nray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2019 00:17:57 +0200</lastBuildDate>
     
 	<atom:link href="https://nray-scanner.org/installation/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,19 +13,22 @@
     <item>
       <title>Prebuilt Binaries</title>
       <link>https://nray-scanner.org/installation/prebuilt/</link>
-      <pubDate>Sun, 07 Apr 2019 00:31:27 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nray-scanner.org/installation/prebuilt/</guid>
-      <description></description>
+      <description>Prebuilt binaries can be downloaded from the project&amp;rsquo;s Github page. Currently, binaries for the following operating systems and architectures are provided:
+ Linux: x86, amd64, arm7 Windows: x86, amd64 macOS  Since nray is written in Go, you may (theoretically, untested) compile it to run on any of Go&amp;rsquo;s supported operating systems and architectures.
+If you are missing a prebuilt architecture, need to inject your own custom configuration, just want a build from latest develop or have your own improvements applied, head over to the documentation on building from source.</description>
     </item>
     
     <item>
       <title>Build Your Own</title>
       <link>https://nray-scanner.org/installation/build-your-own/</link>
-      <pubDate>Sun, 07 Apr 2019 00:31:37 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nray-scanner.org/installation/build-your-own/</guid>
-      <description></description>
+      <description>Want to build your own? Great, that&amp;rsquo;s the spirit! If you know git and command line basics, it isn&amp;rsquo;t too hard, promised! 
+Quick and easy  First, you need git and Go installed. Once they are in place, clone the nray repository and check out the desired branch. Official releases are built from master whereas the hot new stuff is located in develop or feature branches. Open a terminal, navigate to the checked out folder and run go get -u followed by go build That&amp;rsquo;s it!</description>
     </item>
     
   </channel>

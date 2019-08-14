@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nray :: nray</title>
+    <title>certificatetransparency :: nray</title>
 
     
     <link href="/css/nucleus.css?1565802998" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/usage/configuration-file/targetgenerator/certificatetransparency/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/usage/" title="Usage" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/" title="Configuration file (server)" class="dd-item 
-        
+        parent
         
         
         ">
@@ -279,7 +279,7 @@
   
     
     <li data-nav-id="/usage/configuration-file/targetgenerator/" title="targetgenerator" class="dd-item 
-        
+        parent
         
         
         ">
@@ -322,7 +322,7 @@
  
   
     
-      <li data-nav-id="/usage/configuration-file/targetgenerator/certificatetransparency/" title="certificatetransparency" class="dd-item ">
+      <li data-nav-id="/usage/configuration-file/targetgenerator/certificatetransparency/" title="certificatetransparency" class="dd-item active">
         <a href="/usage/configuration-file/targetgenerator/certificatetransparency/">
         <b>3.1.4.2 </b>certificatetransparency
         
@@ -746,36 +746,206 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/usage/configuration-file/targetgenerator/certificatetransparency.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>nray</a> > <a href='/usage/'>Usage</a> > <a href='/usage/configuration-file/'>Configuration file (server)</a> > <a href='/usage/configuration-file/targetgenerator/'>targetgenerator</a> > certificatetransparency
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#enabled-false"><code>enabled: false</code></a></li>
+<li><a href="#domainregex"><code>domainRegex: '^.*$'</code></a></li>
+<li><a href="#tcpports-top25"><code>tcpports: [&quot;top25&quot;]</code></a></li>
+<li><a href="#udpports-top25"><code>udpports: [top25]</code></a></li>
+<li><a href="#blacklist"><code>blacklist: []</code></a></li>
+<li><a href="#maxhostsperbatch-150"><code>maxHostsPerBatch: 150</code></a></li>
+<li><a href="#maxtcpportsperbatch-25"><code>maxTcpPortsPerBatch: 25</code></a></li>
+<li><a href="#maxudpportsperbatch-25"><code>maxUdpPortsPerBatch: 25</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              certificatetransparency
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="nray">nray</h1>
 
-<h4 id="welcome-to-the-home-page-of-nray-a-free-modern-platform-independent-and-distributed-network-scanner">Welcome to the home page of <strong>nray</strong>, a free, modern, platform independent and distributed network scanner.</h4>
+<p>The <code>certificatetransparency</code> streams data from <a href="https://certstream.calidog.io/">certstream</a>, a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.</p>
 
-<p>New to nray? Read the <a href="introduction">introduction</a> to get started.</p>
 
-<p>Searching for the latest releases or information on how to build your own? The <a href="installation">installation</a> chapter answers all your questions.</p>
+<div class="notices tip" ><p>This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee <i class="far fa-smile-wink"></i></p>
+</div>
 
-<p>Already got everything in place? <a href="usage">Usage</a> describes general usage as well as configuration and advanced tricks to get most out of nray!</p>
 
-<p>Got hooked? Having problems? The documentation lacks information. <strong>YOU</strong> can help? <a href="contribute">Join the team and shape the next generation of network discovery!</a></p>
+<h4 id="enabled-false"><code>enabled: false</code></h4>
+
+<p>Enables or disables this target generator.</p>
+
+<h4 id="domainregex"><code>domainRegex: '^.*$'</code></h4>
+
+<p>Scan every site that obtains a certificate and matches the pattern <code>www.somethingsomething.com</code>.
+The default matches every domain name, to match for example <code>www.somethingsomething.com</code> an expression like <code>^(www[.]).*([.]com)$</code> may be used.
+Since regex becomes tricky fast, <a href="https://play.golang.org/p/jgDiTmPlqdW">this play</a> can be adopted to see if the expression works as intended.</p>
+
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Code to try your own regular expression against a domain
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;regexp&#34;</span>
+)
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">regex</span> = <span style="color:#e6db74">&#34;^(www[.]).*([.]com)$&#34;</span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">toCheck</span> = <span style="color:#e6db74">&#34;www.google.com&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#a6e22e">regex</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">toCheck</span>))
+}</code></pre></div>
+    </div>
+</div>
+
+<p>Interesting use case ideas: Scan <code>mail.*</code> for open relays on port 25, check new <code>jenkins.*</code> instances if <code>/script</code> endpoint is present, or maybe there is some software out there that still uses default passwords? Endless possibilities!</p>
+
+<h4 id="tcpports-top25"><code>tcpports: [&quot;top25&quot;]</code></h4>
+
+<p>List of TCP ports to scan. Supports enumerations (<code>[20,21,22,23]</code>), ranges (<code>[8000-8100]</code>) or nmap-style top-lists (e.g. <code>[&quot;top50&quot;]</code>).
+You may also mix, e.g. <code>[20,21,22,23,8000-8100,&quot;top50&quot;]</code>.
+Duplicates are filtered out <i class="far fa-smile-wink"></i></p>
+
+<h4 id="udpports-top25"><code>udpports: [top25]</code></h4>
+
+<p>List of UDP ports to scan. Supports enumerations (<code>[20,21,22,23]</code>), ranges (<code>[8000-8100]</code>) or nmap-style top-lists (e.g. <code>[&quot;top50&quot;]</code>).
+You may also mix, e.g. <code>[20,21,22,23,8000-8100,&quot;top50&quot;]</code>.
+Duplicates are filtered out <i class="far fa-smile-wink"></i></p>
+
+<h4 id="blacklist"><code>blacklist: []</code></h4>
+
+<p>A list of targets not to scan.
+May be CIDR networks, IPs or domain names.</p>
+
+
+<div class="notices info" ><p>DNS resolution happens at the node and there is no reverse DNS lookup.
+This has important implications.
+For example, consider <em>example.local</em> resolving to <em>10.10.10.10</em>.
+When blacklisting <em>example.local</em> but scanning for <em>10.10.10.0/24</em>, the server is going to be scanned. When blacklisting <em>10.10.10.0/24</em> but scanning for <em>example.local</em>, the server is going to be scanned.</p>
+</div>
+
+
+<h4 id="maxhostsperbatch-150"><code>maxHostsPerBatch: 150</code></h4>
+
+<p>Specifies how many target hosts are contained in a single work batch sent to a node. The higher the number, the more hosts have to be scanned by a single node before fetching new work. Should be tweaked together with <code>maxTcpPortsPerBatch</code> and <code>maxUdpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
+
+<h4 id="maxtcpportsperbatch-25"><code>maxTcpPortsPerBatch: 25</code></h4>
+
+<p>Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with <code>maxHostsPerBatch</code> and <code>maxUdpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
+
+<h4 id="maxudpportsperbatch-25"><code>maxUdpPortsPerBatch: 25</code></h4>
+
+<p>Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with <code>maxHostsPerBatch</code> and <code>maxTcpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -874,20 +1044,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -903,6 +1059,25 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -952,6 +1127,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -964,6 +1140,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -981,6 +1160,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -996,6 +1176,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1268,8 +1451,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/usage/configuration-file/targetgenerator/standard/" title="standard"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/usage/configuration-file/targetgenerator/ldap/" title="ldap" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
