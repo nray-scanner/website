@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>udp :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -810,21 +829,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#fast-false"><code>fast: false</code></a></li>
-<li><a href="#defaulthexpayload-x6e-x72-x61-x79"><code>defaultHexPayload: &quot;\x6e\x72\x61\x79&quot;</code></a></li>
-<li><a href="#customhexpayloads"><code>customHexPayloads:</code></a></li>
-<li><a href="#timeout-2500ms"><code>timeout: 2500ms</code></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -849,26 +860,18 @@
 
 
 
-
-
 <h4 id="fast-false"><code>fast: false</code></h4>
-
 <p>Fast sends only known payloads to known ports. The list and payloads are taken from the Metasploit project and it contains currently UDP ports 1604, 53, 137, 123, 524, 5093, 1434, 161, and 111.</p>
-
-<h4 id="defaulthexpayload-x6e-x72-x61-x79"><code>defaultHexPayload: &quot;\x6e\x72\x61\x79&quot;</code></h4>
-
+<h4 id="defaulthexpayload-x6ex72x61x79"><code>defaultHexPayload: &quot;\x6e\x72\x61\x79&quot;</code></h4>
 <p>Since UDP is connection-less, a payload needs to be sent.
 This option configures the default payload that is sent if no custom payload is specified for a port.
 ASCII is supported as well as hexadecimal and octal data representation.
 <code>\x6e\x72\x61\x79</code> is hexadecimal for <code>nray</code>.</p>
-
-<h4 id="customhexpayloads"><code>customHexPayloads:</code></h4>
-
+<h4 id="customhexpayloads-"><code>customHexPayloads: </code></h4>
 <p>Allows to specify custom payloads for specific ports. The example below sends a single <code>'A'</code> character to udp/19:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">customHexPayloads: 
-  <span style="color:#e6db74">&#34;19&#34;</span>: <span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#75715e"># chargen. &#34;A&#34; is the same as &#34;\x41&#34; (hex) or &#34;\101&#34; (oct)</span></code></pre></div>
-<h4 id="timeout-2500ms"><code>timeout: 2500ms</code></h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">customHexPayloads</span>: 
+  <span style="color:#66d9ef">&#34;19&#34;: </span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#75715e"># chargen. &#34;A&#34; is the same as &#34;\x41&#34; (hex) or &#34;\101&#34; (oct)</span>
+</code></pre></div><h4 id="timeout-2500ms"><code>timeout: 2500ms</code></h4>
 <p>Timeout for UDP. If no response is received within this time frame, a port is marked closed.</p>
 
 
@@ -934,6 +937,22 @@ ASCII is supported as well as hexadecimal and octal data representation.
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1395,20 +1414,20 @@ ASCII is supported as well as hexadecimal and octal data representation.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

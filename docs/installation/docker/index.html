@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Build Your Own :: nray</title>
+    <title>Docker :: nray</title>
 
     
     <link href="/css/nucleus.css?1583617846" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/installation/build-your-own/">
+  <body class="" data-url="/installation/docker/">
     <nav id="sidebar" class="">
 
 
@@ -141,7 +141,7 @@
  
   
     
-      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item active">
         <a href="/installation/docker/">
         Docker
         
@@ -160,7 +160,7 @@
  
   
     
-      <li data-nav-id="/installation/build-your-own/" title="Build Your Own" class="dd-item active">
+      <li data-nav-id="/installation/build-your-own/" title="Build Your Own" class="dd-item ">
         <a href="/installation/build-your-own/">
         Build Your Own
         
@@ -772,7 +772,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/installation/build-your-own.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/nray-scanner/website/edit/master/content/installation/docker.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -803,7 +803,7 @@
             
           
           
-            <a href='/'>nray</a> > <a href='/installation/'>Installation</a> > Build Your Own
+            <a href='/'>nray</a> > <a href='/installation/'>Installation</a> > Docker
           
          
           
@@ -840,7 +840,7 @@
           
             <h1>
               
-              Build Your Own
+              Docker
             </h1>
           
 
@@ -848,35 +848,32 @@
 
 
 
-<p>Want to build your own? Great, that&rsquo;s the spirit! If you know git and command line basics, it isn&rsquo;t too hard, promised! <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h4 id="quick-and-easy">Quick and easy</h4>
-<ol>
-<li>First, you need <a href="https://git-scm.com/">git</a> and <a href="https://golang.org/">Go</a> installed. Once they are in place, clone the <a href="https://github.com/nray-scanner/nray">nray repository</a> and check out the desired branch. Official releases are built from <code>master</code> whereas the hot new stuff is located in <code>develop</code> or feature branches.</li>
-<li>Open a terminal, navigate to the checked out folder and run <code>go get -u</code> followed by <code>go build</code></li>
-<li><strong>That&rsquo;s it!</strong> You just built a nray binary for your system without any obvious magic involved!</li>
-</ol>
-<h4 id="taking-a-closer-look">Taking a closer look</h4>
-<p>Usually it is easy to build a binary that runs on the current system, therefore this is no unique selling point. Go&rsquo;s ability to generate binaries for most operating systems and architecture without requiring third party libraries (like glibc!) as well as the excellent cross-compiling capabilities were a main reason for choosing this language. It also supports injecting values for variables at compile time which comes in handy in some situations.</p>
-<p>In order to understand what is going on, we are going to look at an excerpt of the actual Makefile. Fear not, this is not the kind of complex Makefile you may have seen in the past as the build process for nray is quite simple and straight-forward.</p>
-<p>In this example, we are going to look at the (slightly simplified) <code>build-armv7-linux</code> and <code>build-localarch</code> targets:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-make" data-lang="make"><span style="color:#a6e22e">build-armv7-linux</span><span style="color:#f92672">:</span>
-	CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span>arm GOARM<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span> go build -ldflags <span style="color:#e6db74">&#34;-s -w&#34;</span> -o build/nray-armv7-linux ./nray.go 
-</code></pre></div><ul>
-<li><code>CGO_ENABLED=0</code>: Disables CGO, in other words: Make sure no C-code is used or linked. On some platforms, the Go-compiler may prefer existing C code for some functionality which decreases portability. We explicitly disable this behavior to make sure the binary is going to run on the target regardless of availability of specific libraries like glibc.</li>
-<li><code>GOOS=linux</code>: Build a linux binary</li>
-<li><code>GOARCH=arm</code>: The target architecture is ARM</li>
-<li><code>GOARM=7</code>: Specifically: ARMv7</li>
-<li><code>go build -o build/nray-armv7-linux ./nray.go</code>: Take <code>nray.go</code> and compile it to <code>build/nray-armv7-linux</code></li>
-<li><code>-ldflags &quot;-s -w&quot;</code>: Omits symbol tables and debug information. This mostly reduces the size of the binary but should be disabled first when tracking down bugs.</li>
+<p>Starting with 1.1, there are official Docker images and care is taken to support running nray from containered environments.</p>
+<h4 id="running-nray-from-docker">Running nray from Docker</h4>
+<p>Nray&rsquo;s source repository contains two Dockerfiles that are used to build the images also found on Docker Hub.
+The first one is based on Docker&rsquo;s scratch image and since there is no user space apart from nray, it is really small.
+The second one builds upon Debian, giving the user the ability to access the system interactively which is often more desirable than having a small container.</p>
+<h5 id="example-server">Example: Server</h5>
+<p>In order to run a nray server from a container, a few precautions have to be taken:</p>
+<ul>
+<li>Make sure to bind to 0.0.0.0 inside the container (<code>host: &quot;0.0.0.0&quot;</code>), otherwise it is not possible to connect to the nray instance.</li>
+<li>Make sure to read configuration and write results to a directory that exists within the container and is mounted to the outside world.
+The images contain the directory <code>/nray-data/</code> which is readable and writable for the nray user.
+In this example, <code>/tmp/nray</code> is mounted into the container - now, the nray process inside the container is able to read the configuration and if the output is configured to be written to <code>/nray-data/</code>, it can be read by the host.</li>
 </ul>
-<p>That&rsquo;s it. No fighting the cross compiler or installing dependencies for ARM. <code>build-localarch</code> introduces more cool features, especially for developing nray or running in constrained environments:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-make" data-lang="make"><span style="color:#a6e22e">build-localarch</span><span style="color:#f92672">:</span>
-	go build -race -o build/nray ./nray.go 
-	go build -race -ldflags <span style="color:#e6db74">&#34;-X main.server=127.0.0.1 -X main.port=8601&#34;</span> -o build/nray_localhardcoded ./nray.go 
-</code></pre></div><p>This target creates two binaries: <code>nray</code> and <code>nray_localhardcoded</code>.
-Both are targeting the architecture and operating system of the build machine.
-CGO is not disabled in order to use the race detector of Go. The race detector is a really powerful feature that allows to detect concurrent, not synchronized access to data. Since nray heavily depends on Go&rsquo;s concurrency features, the race detector is probably the main reason why nray does not blow up every ten seconds, so if you&rsquo;re working on the code base it is highly advised to enable it.</p>
-<p>In contrast to the <code>nray</code> binary, <code>nray_localhardcoded</code> has values for the server and port address injected at compile time. Running <code>nray_localhardcoded</code> without any parameters (e.g. by double clicking) will connect to <code>127.0.0.1:8601</code> which may come in handy in some situations <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>A command that spawns a container running a nray server with respective directories mounted and ports forwarded may look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm --mount type<span style="color:#f92672">=</span>bind,src<span style="color:#f92672">=</span>/tmp/nray,dst<span style="color:#f92672">=</span>/nray-data -p 8601:8601 nrayscanner/nray-scratch server -c /nray-data/nray-conf.yaml
+</code></pre></div><h5 id="example-node">Example: Node</h5>
+<p>Compared to the server, nodes are a simple case since they are able to run without binding to ports or accessing the disk.
+Therefore, running a node can be as simple as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm nrayscanner/nray-debian node -s &lt;server URL&gt; -p &lt;server port&gt;
+</code></pre></div><h4 id="building-nray-docker-containers">Building nray docker containers</h4>
+<p>Please refer to the Dockerfiles in the <code>docker/</code> directory that can be found in the source repository.
+The creation of the images is done via the <code>docker</code> target in the Makefile.</p>
+<h4 id="building-nray-binaries-from-a-docker-container">Building nray binaries from a docker container</h4>
+<p>In order to build nray within a docker container, e.g. to avoid setting up a Go build environment on your own or because you are in a hurry and it is a one-liner, run the following command in the root of the nray source code repository:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>:/nray -w /nray golang:latest make release
+</code></pre></div><p>If you are only interested in binaries for a specific architecture, you may alter the make target from <code>release</code> to any other supported value, e.g. <code>build-x64-windows</code>.</p>
 
 
 <footer class=" footline" >
@@ -967,22 +964,6 @@ CGO is not disabled in order to use the race detector of Go. The race detector i
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -995,9 +976,6 @@ CGO is not disabled in order to use the race detector of Go. The race detector i
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1005,6 +983,25 @@ CGO is not disabled in order to use the race detector of Go. The race detector i
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1400,10 +1397,10 @@ CGO is not disabled in order to use the race detector of Go. The race detector i
 	 
 	 
 		
-			<a class="nav nav-prev" href="/installation/docker/" title="Docker"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/installation/prebuilt/" title="Prebuilt Binaries"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/usage/" title="Usage" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/installation/build-your-own/" title="Build Your Own" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

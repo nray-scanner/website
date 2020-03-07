@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>elasticsearch :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617846" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617846" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617846" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617846" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617846" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617846" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617846" rel="stylesheet">
+    <link href="/css/theme.css?1583617846" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617846" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617846" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617846"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617846"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617846"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617846"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -810,24 +829,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#enabled-false"><code>enabled: false</code></a></li>
-<li><a href="#server-elasticsearch-local"><code>server: &quot;elasticsearch.local&quot;</code></a></li>
-<li><a href="#usetls-true"><code>useTLS: true</code></a></li>
-<li><a href="#port-443"><code>port: 443</code></a></li>
-<li><a href="#internal-indexname-nray"><code>internal.indexname: &quot;nray&quot;</code></a></li>
-<li><a href="#internal-channelsize-10000"><code>internal.channelsize: 10000</code></a></li>
-<li><a href="#internal-committimer-3"><code>internal.committimer: 3</code></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -852,34 +860,19 @@
 
 
 
-
-
 <h4 id="enabled-false"><code>enabled: false</code></h4>
-
 <p>Enables the elasticsearch event handler. If true, all events are also sent to elasticsearch. This is useful for performing queries or visualizing data, e.g. using Kibana.</p>
-
-<h4 id="server-elasticsearch-local"><code>server: &quot;elasticsearch.local&quot;</code></h4>
-
+<h4 id="server-elasticsearchlocal"><code>server: &quot;elasticsearch.local&quot;</code></h4>
 <p>The name or IP address of the elasticsearch node.</p>
-
 <h4 id="usetls-true"><code>useTLS: true</code></h4>
-
 <p>Forces use of TLS.</p>
-
 <h4 id="port-443"><code>port: 443</code></h4>
-
 <p>TCP port elasticsearch is listening on.</p>
-
-<h4 id="internal-indexname-nray"><code>internal.indexname: &quot;nray&quot;</code></h4>
-
+<h4 id="internalindexname-nray"><code>internal.indexname: &quot;nray&quot;</code></h4>
 <p>The name of the index.</p>
-
-<h4 id="internal-channelsize-10000"><code>internal.channelsize: 10000</code></h4>
-
+<h4 id="internalchannelsize-10000"><code>internal.channelsize: 10000</code></h4>
 <p>Size of the internal buffer holding events between commits.</p>
-
-<h4 id="internal-committimer-3"><code>internal.committimer: 3</code></h4>
-
+<h4 id="internalcommittimer-3"><code>internal.committimer: 3</code></h4>
 <p>Interval to commit data.</p>
 
 
@@ -945,6 +938,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1406,20 +1415,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617846"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617846"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617846"></script>
+    <script src="/js/jquery.sticky.js?1583617846"></script>
+    <script src="/js/featherlight.min.js?1583617846"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617846"></script>
+    <script src="/js/highlight.pack.js?1583617846"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617846"></script>
+    <script src="/js/learn.js?1583617846"></script>
+    <script src="/js/hugo-learn.js?1583617846"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617846" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617846"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

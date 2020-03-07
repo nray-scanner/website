@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>TLS setup :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -798,26 +817,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#cfssl-generate-local-ca-keys-and-certificates">CFSSL: Generate local CA, keys and certificates</a></li>
-<li><a href="#what-you-need-for-operation">What you need for operation</a>
-<ul>
-<li><a href="#server">Server</a></li>
-<li><a href="#node">Node</a></li>
-</ul></li>
-<li><a href="#howto-run">HowTo run</a>
-<ul>
-<li><a href="#trust-every-server-no-client-auth">Trust every server, no client auth</a></li>
-<li><a href="#trust-only-this-server-no-client-auth">Trust only this server, no client auth</a></li>
-<li><a href="#trust-only-this-server-client-authentication">Trust only this server, client authentication</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cfssl-generate-local-ca-keys-and-certificates">CFSSL: Generate local CA, keys and certificates</a></li>
+        <li><a href="#what-you-need-for-operation">What you need for operation</a></li>
+        <li><a href="#howto-run">HowTo run</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -842,82 +850,61 @@
 
 
 
-
-
 <p>It is recommended to use TLS for protecting traffic between nray&rsquo;s server and nodes, including mutual authentication if required.
 This quick start guide describes a portable and working approach to generate a CA and all required keys and certificates as well as how to use them.
 The goal is to provide an easy to follow guide, nevertheless a basic understanding of TLS and PKI is recommended.</p>
-
 <p>This guide relies on cloudflare&rsquo;s open source <a href="https://cfssl.org/">cfssl</a>.
 Cherry-picked from <a href="https://gist.github.com/denji/12b3a568f092ab951456">here</a> and <a href="https://kb.op5.com/pages/viewpage.action?pageId=19073746">here</a> and <a href="https://github.com/jcbsmpsn/golang-https-example">here</a> and of course <a href="https://github.com/cloudflare/cfssl">here</a>.</p>
-
 <p>If you manage to get this up and running using keys and certificates generated by OpenSSL, Microsoft PKI, vim macro or your favorite solution not listed yet, we would love to know how you did it - simply edit this page and send a pull request!</p>
-
 <h3 id="cfssl-generate-local-ca-keys-and-certificates">CFSSL: Generate local CA, keys and certificates</h3>
-
-<ol>
+<ol start="0">
 <li>Get cfssl: <code>go get -u github.com/cloudflare/cfssl/cmd/cfssl</code> and <code>go get -u github.com/cloudflare/cfssl/cmd/cfssljson</code></li>
-
-<li><p>Generate a CSR and save it to a file, e.g. <code>csr.json</code>. It contains basic information about the CA:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
-<span style="color:#f92672">&#34;key&#34;</span>: {
-    <span style="color:#f92672">&#34;algo&#34;</span>: <span style="color:#e6db74">&#34;rsa&#34;</span>,
-    <span style="color:#f92672">&#34;size&#34;</span>: <span style="color:#ae81ff">2048</span>
-},
-<span style="color:#f92672">&#34;names&#34;</span>: [
-    {
-        <span style="color:#f92672">&#34;C&#34;</span>:  <span style="color:#e6db74">&#34;DE&#34;</span>,
-        <span style="color:#f92672">&#34;L&#34;</span>:  <span style="color:#e6db74">&#34;Munich&#34;</span>,
-        <span style="color:#f92672">&#34;O&#34;</span>:  <span style="color:#e6db74">&#34;nray-scanner&#34;</span>
-    }
-]
-}</code></pre></div></li>
-
-<li><p>Generate a local CA: <code>cfssl  genkey -initca csr.json | cfssljson -bare ca</code>. This creates <code>ca-key.pem</code>, the CA&rsquo;s private key, as well as <code>ca.pem</code>, the certificate and <code>ca.csr</code> which is of no further use and may be deleted.</p></li>
-
-<li><p>Generate server certificate. If the host where nray is going to run has a DNS name, you may include it here, otherwise keep localhost: <code>cfssl gencert -ca ca.pem -ca-key ca-key.pem -hostname=localhost csr.json | cfssljson -bare server</code>. This creates files analogous to our CA, but with <code>server*</code> in their names.</p></li>
-
-<li><p>(if node auth is desired) Generate node certificate. Analogous to server. You may omit the hostname field and ignore the warning. Repeat for every node or reuse certificate.</p></li>
+<li>Generate a CSR and save it to a file, e.g. <code>csr.json</code>. It contains basic information about the CA:</li>
 </ol>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
+    <span style="color:#f92672">&#34;key&#34;</span>: {
+        <span style="color:#f92672">&#34;algo&#34;</span>: <span style="color:#e6db74">&#34;rsa&#34;</span>,
+        <span style="color:#f92672">&#34;size&#34;</span>: <span style="color:#ae81ff">2048</span>
+    },
+    <span style="color:#f92672">&#34;names&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;C&#34;</span>:  <span style="color:#e6db74">&#34;DE&#34;</span>,
+            <span style="color:#f92672">&#34;L&#34;</span>:  <span style="color:#e6db74">&#34;Munich&#34;</span>,
+            <span style="color:#f92672">&#34;O&#34;</span>:  <span style="color:#e6db74">&#34;nray-scanner&#34;</span>
+        }
+    ]
+}
+</code></pre></div><ol start="2">
+<li>Generate a local CA: <code>cfssl  genkey -initca csr.json | cfssljson -bare ca</code>. This creates <code>ca-key.pem</code>, the CA&rsquo;s private key, as well as <code>ca.pem</code>, the certificate and <code>ca.csr</code> which is of no further use and may be deleted.</li>
+<li>Generate server certificate. If the host where nray is going to run has a DNS name, you may include it here, otherwise keep localhost: <code>cfssl gencert -ca ca.pem -ca-key ca-key.pem -hostname=localhost csr.json | cfssljson -bare server</code>. This creates files analogous to our CA, but with <code>server*</code> in their names.</li>
+<li>(if node auth is desired) Generate node certificate. Analogous to server. You may omit the hostname field and ignore the warning. Repeat for every node or reuse certificate.</li>
+</ol>
 <p>As you do not need the csr&rsquo;s anymore, you may delete them if you want.</p>
-
 <h3 id="what-you-need-for-operation">What you need for operation</h3>
-
 <h4 id="server">Server</h4>
-
 <ul>
 <li><code>ca.pem</code> (This is public knowledge btw)</li>
 <li><code>server.pem</code> (public if you want)</li>
 <li><code>server-key.pem</code> (private)</li>
 </ul>
-
 <h4 id="node">Node</h4>
-
 <ul>
 <li><code>ca.pem</code> (This is public knowledge btw)</li>
 <li><code>client.pem</code> (public if you want)</li>
 <li><code>client-key.pem</code> (private)</li>
 </ul>
-
 <h3 id="howto-run">HowTo run</h3>
-
 <h4 id="trust-every-server-no-client-auth">Trust every server, no client auth</h4>
-
 <ul>
 <li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
 <li>Node: <code>./nray node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-insecure</code>. <strong>This is insecure and traffic may be intercepted/modified by a 3rd party!</strong>. This mode of operation only protects from somebody occasionally scrolling over the traffic in Wireshark.</li>
 </ul>
-
 <h4 id="trust-only-this-server-no-client-auth">Trust only this server, no client auth</h4>
-
 <ul>
 <li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
 <li>Node: <code>./nray node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-ca-cert /path/to/your/ca.pem --tls-server-SAN &quot;&lt;hostname&gt;&quot;</code>. If the nray-server has actually a DNS name that is also reflected in the cert, you can omit <code>--tls-server-SAN</code>, but if you are in an ad-hoc scenario or there is no DNS available and nray complains that the server name is missing, <code>--tls-server-SAN</code> is your friend.</li>
 </ul>
-
 <h4 id="trust-only-this-server-client-authentication">Trust only this server, client authentication</h4>
-
 <ul>
 <li>Server: Set <code>TLS.enabled: true</code>, <code>TLS.CA: &quot;/path/to/your/ca.pem&quot;</code>, <code>TLS.cert: /path/to/your/server.pem</code>, and <code>TLS.key: /path/to/your/server-key.pem</code></li>
 <li>Node: <code>./nray-node -s &lt;ip-or-dnsname&gt; -p 8601 --use-tls --tls-ca-cert /path/to/your/ca.pem --tls-server-SAN &quot;&lt;hostname&gt;&quot; --tls-client-cert /path/to/your/client.pem --tls-client-key /path/to/your/client-key.pem</code>. If the nray-server has actually a DNS name that is also reflected in the cert, you can omit <code>--tls-server-SAN</code>, but if you are in an ad-hoc scenario or there is no DNS available and nray complains that the server name is missing, <code>--tls-server-SAN</code> is your friend.</li>
@@ -986,6 +973,22 @@ Cherry-picked from <a href="https://gist.github.com/denji/12b3a568f092ab951456">
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1442,20 +1445,20 @@ Cherry-picked from <a href="https://gist.github.com/denji/12b3a568f092ab951456">
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

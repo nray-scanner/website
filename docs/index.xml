@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nray</title>
@@ -28,7 +28,7 @@ targets: [] A list of targets to scan. May be (also a mix of) CIDR networks, IPs
       
       <guid>https://nray-scanner.org/usage/configuration-file/targetgenerator/certificatetransparency/</guid>
       <description>The certificatetransparency streams data from certstream, a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.
-This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee</description>
+This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee  enabled: false Enables or disables this target generator.</description>
     </item>
     
     <item>
@@ -87,13 +87,22 @@ If you are missing a prebuilt architecture, need to inject your own custom confi
     </item>
     
     <item>
+      <title>Docker</title>
+      <link>https://nray-scanner.org/installation/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nray-scanner.org/installation/docker/</guid>
+      <description>Starting with 1.1, there are official Docker images and care is taken to support running nray from containered environments.
+Running nray from Docker Nray&amp;rsquo;s source repository contains two Dockerfiles that are used to build the images also found on Docker Hub. The first one is based on Docker&amp;rsquo;s scratch image and since there is no user space apart from nray, it is really small. The second one builds upon Debian, giving the user the ability to access the system interactively which is often more desirable than having a small container.</description>
+    </item>
+    
+    <item>
       <title>Build Your Own</title>
       <link>https://nray-scanner.org/installation/build-your-own/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nray-scanner.org/installation/build-your-own/</guid>
-      <description>Want to build your own? Great, that&amp;rsquo;s the spirit! If you know git and command line basics, it isn&amp;rsquo;t too hard, promised! 
-Quick and easy  First, you need git and Go installed. Once they are in place, clone the nray repository and check out the desired branch. Official releases are built from master whereas the hot new stuff is located in develop or feature branches. Open a terminal, navigate to the checked out folder and run go get -u followed by go build That&amp;rsquo;s it!</description>
+      <description>Want to build your own? Great, that&amp;rsquo;s the spirit! If you know git and command line basics, it isn&amp;rsquo;t too hard, promised! Quick and easy  First, you need git and Go installed. Once they are in place, clone the nray repository and check out the desired branch. Official releases are built from master whereas the hot new stuff is located in develop or feature branches. Open a terminal, navigate to the checked out folder and run go get -u followed by go build That&amp;rsquo;s it!</description>
     </item>
     
     <item>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Examples :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -798,21 +817,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#simple-port-scan-from-local-machine">Simple port scan from local machine</a></li>
-<li><a href="#jq-library">jq library</a>
-<ul>
-<li><a href="#show-all-events-where-port-22-was-involved">Show all events where port 22 was involved</a></li>
-<li><a href="#show-all-events-where-tcp-port-80-was-found-open">Show all events where tcp port 80 was found open</a></li>
-<li><a href="#show-only-ips-names-of-systems-where-tcp-port-80-was-found-open">Show only IPs/names of systems where tcp port 80 was found open</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#simple-port-scan-from-local-machine">Simple port scan from local machine</a></li>
+        <li><a href="#jq-library">jq library</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -837,153 +849,139 @@
 
 
 
-
-
 <p>This page contains some examples to get your nray experience started quickly.</p>
-
 <p>All examples assume that the binary is called <code>nray</code>, of course you have to adapt this to the name of your binary.</p>
-
 <h3 id="simple-port-scan-from-local-machine">Simple port scan from local machine</h3>
-
 
 <div class="notices warning" ><p>Unfortunately, due to a bug in the upstream project of the configuration parser, currently some options mustn&rsquo;t be omitted. See <a href="https://github.com/nray-scanner/nray/issues/6">this issue</a> for more information. The following configuration has therefore all options listed, albeit most of them are disabled. The relevant settings are marked with a comment.</p>
 </div>
 
-
 <ul>
-<li><p>Edit the configuration file (e.g. <code>config.yaml</code>) to contain the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">debug: <span style="color:#66d9ef">false</span> 
-listen: [<span style="color:#ae81ff">8601</span>] <span style="color:#75715e"># Port to listen</span>
-host: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span> <span style="color:#75715e"># host to listen (only localhost)</span>
-pools: <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Only use a single pool</span>
-
-TLS:
-enabled: <span style="color:#66d9ef">false</span>
-CA: <span style="color:#e6db74">&#34;/path/to/ca.pem&#34;</span>
-cert: <span style="color:#e6db74">&#34;/path/to/servercert.pem&#34;</span>
-key: <span style="color:#e6db74">&#34;/path/to/servercert-key.pem&#34;</span>
-forceClientAuth: <span style="color:#66d9ef">false</span>
-
-considerClientPoolPreference: <span style="color:#66d9ef">true</span>
-allowMultipleNodesPerHost: <span style="color:#66d9ef">false</span>
-internal:
-nodeExpiryTime: <span style="color:#ae81ff">30</span>
-nodeExpiryCheckInterval: <span style="color:#ae81ff">10</span>
-
-targetgenerator:
-bufferSize: <span style="color:#ae81ff">5</span>
-standard:
-enabled: <span style="color:#66d9ef">true</span>
-targets: [<span style="color:#e6db74">&#34;192.168.178.1/28&#34;</span>] <span style="color:#75715e"># target network to scan</span>
-tcpports: [<span style="color:#e6db74">&#34;top25&#34;</span>] <span style="color:#75715e"># which TCP ports to scan</span>
-udpports: [] <span style="color:#75715e"># don&#39;t scan UDP</span>
-blacklist: [] <span style="color:#75715e"># no blacklist</span>
-maxHostsPerBatch: <span style="color:#ae81ff">20</span>
-maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
-maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
-certificatetransparency:
-enabled: <span style="color:#66d9ef">false</span>
-domainRegex: <span style="color:#e6db74">&#39;^(www[.]).*([.]com)$&#39;</span>
-tcpports: [top25]
-udpports: [top25]
-blacklist: []
-maxHostsPerBatch: <span style="color:#ae81ff">150</span>
-maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
-maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
-ldap:
-enabled: <span style="color:#66d9ef">false</span>
-ldapSearchString: <span style="color:#e6db74">&#34;(objectCategory=computer)&#34;</span>
-baseDN: <span style="color:#e6db74">&#34;dc=contoso,dc=com&#34;</span>
-ldapAttribute: <span style="color:#e6db74">&#34;dNSHostName&#34;</span>
-ldapServer: <span style="color:#e6db74">&#34;&#34;</span>
-ldapPort: <span style="color:#ae81ff">636</span>
-insecure: <span style="color:#66d9ef">false</span>
-ldapUser: <span style="color:#e6db74">&#34;&#34;</span>
-ldapPass: <span style="color:#e6db74">&#34;&#34;</span>
-tcpports: [top25]
-udpports: [top25]
-blacklist: []
-maxHostsPerBatch: <span style="color:#ae81ff">5</span>
-maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span>
-maxUdpPortsPerBatch: <span style="color:#ae81ff">25</span>
-scannerconfig:
-workers: <span style="color:#ae81ff">250</span> <span style="color:#75715e"># Run with 250 workers</span>
-ratelimit: <span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#75715e"># No rate limit</span>
-tcp:
-timeout: 2500ms <span style="color:#75715e"># 2.5s TCP timeout</span>
-udp:
-fast: <span style="color:#66d9ef">false</span>
-defaultHexPayload: <span style="color:#e6db74">&#34;\x6e\x72\x61\x79&#34;</span>
-timeout: 2500ms
-zgrab2:
-enabledModules: []
-ssh:
-  subscribePorts: [<span style="color:#e6db74">&#34;tcp/22&#34;</span>]
-  timeout: 2500ms
-  ClientID: <span style="color:#e6db74">&#34;SSH-2.0-Go-nray&#34;</span> 
-  CollectUserAuth: <span style="color:#66d9ef">true</span>
-http:
-  subscribeHTTPPorts: [<span style="color:#e6db74">&#34;tcp/80&#34;</span>, <span style="color:#e6db74">&#34;tcp/8080&#34;</span>, <span style="color:#e6db74">&#34;tcp/8000&#34;</span>]
-  subscribeHTTPSPorts: [<span style="color:#e6db74">&#34;tcp/443&#34;</span>, <span style="color:#e6db74">&#34;tcp/8443&#34;</span>]
-  timeout: 2500ms
-  method: <span style="color:#e6db74">&#34;GET&#34;</span>
-  endpoint: <span style="color:#e6db74">&#34;/&#34;</span>
-  userAgent: <span style="color:#e6db74">&#34;nray&#34;</span> 
-  retryHTTPS: <span style="color:#66d9ef">true</span> 
-  maxRedirects: <span style="color:#ae81ff">2</span>
-events:
-terminal:
-enabled: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># print events to terminal</span>
-internal:
-  channelsize: <span style="color:#ae81ff">1000</span>
-json-file: 
-enabled: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># write events to file</span>
-filename: <span style="color:#e6db74">&#34;nray-output.json&#34;</span> <span style="color:#75715e"># filename</span>
-overwriteExisting: <span style="color:#66d9ef">false</span> 
-internal:
-  channelsize: <span style="color:#ae81ff">10000</span> 
-  synctimer: 10s
-elasticsearch:
-enabled: <span style="color:#66d9ef">false</span>
-server: <span style="color:#e6db74">&#34;elasticsearch.local&#34;</span>
-useTLS: <span style="color:#66d9ef">true</span>
-port: <span style="color:#ae81ff">443</span>
-internal:
-  indexname: <span style="color:#e6db74">&#34;nray&#34;</span>
-  channelsize: <span style="color:#ae81ff">10000</span>
-  committimer: <span style="color:#ae81ff">3</span></code></pre></div></li>
-
-<li><p>Next, run the server: <code>./nray server -c /path/to/config.yaml</code>.</p></li>
-
-<li><p>Finally, run a node on the same system: <code>./nray node</code>. If no server and port is specified, nodes always try to connect to localhost:8601 whereas other values can be injected at compile time or can be passed via <code>-s &lt;server&gt;</code> and <code>-p &lt;port&gt;</code> parameter.</p></li>
-
-<li><p>If there are systems in the network having ports opened, you should now see events for each port found.</p></li>
-
-<li><p>Results are also written to <code>nray-output.json</code></p></li>
+<li>Edit the configuration file (e.g. <code>config.yaml</code>) to contain the following:</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">debug</span>: <span style="color:#66d9ef">false</span> 
+<span style="color:#66d9ef">listen</span>: [<span style="color:#ae81ff">8601</span>] <span style="color:#75715e"># Port to listen</span>
+<span style="color:#66d9ef">host</span>: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span> <span style="color:#75715e"># host to listen (only localhost)</span>
+<span style="color:#66d9ef">pools</span>: <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Only use a single pool</span>
 
+<span style="color:#66d9ef">TLS</span>:
+  <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#66d9ef">CA</span>: <span style="color:#e6db74">&#34;/path/to/ca.pem&#34;</span>
+  <span style="color:#66d9ef">cert</span>: <span style="color:#e6db74">&#34;/path/to/servercert.pem&#34;</span>
+  <span style="color:#66d9ef">key</span>: <span style="color:#e6db74">&#34;/path/to/servercert-key.pem&#34;</span>
+  <span style="color:#66d9ef">forceClientAuth</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#66d9ef">considerClientPoolPreference</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#66d9ef">allowMultipleNodesPerHost</span>: <span style="color:#66d9ef">false</span>
+<span style="color:#66d9ef">internal</span>:
+  <span style="color:#66d9ef">nodeExpiryTime</span>: <span style="color:#ae81ff">30</span>
+  <span style="color:#66d9ef">nodeExpiryCheckInterval</span>: <span style="color:#ae81ff">10</span>
+
+<span style="color:#66d9ef">targetgenerator</span>:
+  <span style="color:#66d9ef">bufferSize</span>: <span style="color:#ae81ff">5</span>
+  <span style="color:#66d9ef">standard</span>:
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">targets</span>: [<span style="color:#e6db74">&#34;192.168.178.1/28&#34;</span>] <span style="color:#75715e"># target network to scan</span>
+    <span style="color:#66d9ef">tcpports</span>: [<span style="color:#e6db74">&#34;top25&#34;</span>] <span style="color:#75715e"># which TCP ports to scan</span>
+    <span style="color:#66d9ef">udpports</span>: [] <span style="color:#75715e"># don&#39;t scan UDP</span>
+    <span style="color:#66d9ef">blacklist</span>: [] <span style="color:#75715e"># no blacklist</span>
+    <span style="color:#66d9ef">maxHostsPerBatch</span>: <span style="color:#ae81ff">20</span>
+    <span style="color:#66d9ef">maxTcpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+    <span style="color:#66d9ef">maxUdpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+  <span style="color:#66d9ef">certificatetransparency</span>:
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">domainRegex</span>: <span style="color:#e6db74">&#39;^(www[.]).*([.]com)$&#39;</span>
+    <span style="color:#66d9ef">tcpports</span>: [top25]
+    <span style="color:#66d9ef">udpports</span>: [top25]
+    <span style="color:#66d9ef">blacklist</span>: []
+    <span style="color:#66d9ef">maxHostsPerBatch</span>: <span style="color:#ae81ff">150</span>
+    <span style="color:#66d9ef">maxTcpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+    <span style="color:#66d9ef">maxUdpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+  <span style="color:#66d9ef">ldap</span>:
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">ldapSearchString</span>: <span style="color:#e6db74">&#34;(objectCategory=computer)&#34;</span>
+    <span style="color:#66d9ef">baseDN</span>: <span style="color:#e6db74">&#34;dc=contoso,dc=com&#34;</span>
+    <span style="color:#66d9ef">ldapAttribute</span>: <span style="color:#e6db74">&#34;dNSHostName&#34;</span>
+    <span style="color:#66d9ef">ldapServer</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">ldapPort</span>: <span style="color:#ae81ff">636</span>
+    <span style="color:#66d9ef">insecure</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">ldapUser</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">ldapPass</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">tcpports</span>: [top25]
+    <span style="color:#66d9ef">udpports</span>: [top25]
+    <span style="color:#66d9ef">blacklist</span>: []
+    <span style="color:#66d9ef">maxHostsPerBatch</span>: <span style="color:#ae81ff">5</span>
+    <span style="color:#66d9ef">maxTcpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+    <span style="color:#66d9ef">maxUdpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+<span style="color:#66d9ef">scannerconfig</span>:
+  <span style="color:#66d9ef">workers</span>: <span style="color:#ae81ff">250</span> <span style="color:#75715e"># Run with 250 workers</span>
+  <span style="color:#66d9ef">ratelimit</span>: <span style="color:#e6db74">&#34;none&#34;</span> <span style="color:#75715e"># No rate limit</span>
+  <span style="color:#66d9ef">tcp</span>:
+    <span style="color:#66d9ef">timeout</span>: 2500ms <span style="color:#75715e"># 2.5s TCP timeout</span>
+  <span style="color:#66d9ef">udp</span>:
+    <span style="color:#66d9ef">fast</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">defaultHexPayload</span>: <span style="color:#e6db74">&#34;\x6e\x72\x61\x79&#34;</span>
+    <span style="color:#66d9ef">timeout</span>: 2500ms
+  <span style="color:#66d9ef">zgrab2</span>:
+    <span style="color:#66d9ef">enabledModules</span>: []
+    <span style="color:#66d9ef">ssh</span>:
+      <span style="color:#66d9ef">subscribePorts</span>: [<span style="color:#e6db74">&#34;tcp/22&#34;</span>]
+      <span style="color:#66d9ef">timeout</span>: 2500ms
+      <span style="color:#66d9ef">ClientID</span>: <span style="color:#e6db74">&#34;SSH-2.0-Go-nray&#34;</span> 
+      <span style="color:#66d9ef">CollectUserAuth</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">http</span>:
+      <span style="color:#66d9ef">subscribeHTTPPorts</span>: [<span style="color:#e6db74">&#34;tcp/80&#34;</span>, <span style="color:#e6db74">&#34;tcp/8080&#34;</span>, <span style="color:#e6db74">&#34;tcp/8000&#34;</span>]
+      <span style="color:#66d9ef">subscribeHTTPSPorts</span>: [<span style="color:#e6db74">&#34;tcp/443&#34;</span>, <span style="color:#e6db74">&#34;tcp/8443&#34;</span>]
+      <span style="color:#66d9ef">timeout</span>: 2500ms
+      <span style="color:#66d9ef">method</span>: <span style="color:#e6db74">&#34;GET&#34;</span>
+      <span style="color:#66d9ef">endpoint</span>: <span style="color:#e6db74">&#34;/&#34;</span>
+      <span style="color:#66d9ef">userAgent</span>: <span style="color:#e6db74">&#34;nray&#34;</span> 
+      <span style="color:#66d9ef">retryHTTPS</span>: <span style="color:#66d9ef">true</span> 
+      <span style="color:#66d9ef">maxRedirects</span>: <span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">events</span>:
+  <span style="color:#66d9ef">terminal</span>:
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># print events to terminal</span>
+    <span style="color:#66d9ef">internal</span>:
+      <span style="color:#66d9ef">channelsize</span>: <span style="color:#ae81ff">1000</span>
+  <span style="color:#66d9ef">json-file</span>: 
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># write events to file</span>
+    <span style="color:#66d9ef">filename</span>: <span style="color:#e6db74">&#34;nray-output.json&#34;</span> <span style="color:#75715e"># filename</span>
+    <span style="color:#66d9ef">overwriteExisting</span>: <span style="color:#66d9ef">false</span> 
+    <span style="color:#66d9ef">internal</span>:
+      <span style="color:#66d9ef">channelsize</span>: <span style="color:#ae81ff">10000</span> 
+      <span style="color:#66d9ef">synctimer</span>: 10s
+  <span style="color:#66d9ef">elasticsearch</span>:
+    <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">server</span>: <span style="color:#e6db74">&#34;elasticsearch.local&#34;</span>
+    <span style="color:#66d9ef">useTLS</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">443</span>
+    <span style="color:#66d9ef">internal</span>:
+      <span style="color:#66d9ef">indexname</span>: <span style="color:#e6db74">&#34;nray&#34;</span>
+      <span style="color:#66d9ef">channelsize</span>: <span style="color:#ae81ff">10000</span>
+      <span style="color:#66d9ef">committimer</span>: <span style="color:#ae81ff">3</span>
+</code></pre></div><ul>
+<li>Next, run the server: <code>./nray server -c /path/to/config.yaml</code>.</li>
+<li>Finally, run a node on the same system: <code>./nray node</code>. If no server and port is specified, nodes always try to connect to localhost:8601 whereas other values can be injected at compile time or can be passed via <code>-s &lt;server&gt;</code> and <code>-p &lt;port&gt;</code> parameter.</li>
+<li>If there are systems in the network having ports opened, you should now see events for each port found.</li>
+<li>Results are also written to <code>nray-output.json</code></li>
+</ul>
 <h3 id="jq-library">jq library</h3>
-
 <p><a href="https://stedolan.github.io/jq/">jq</a> is an excellent command line JSON processor.
 It allows to view and query JSON documents and you may give it a shot for accessing the event file.</p>
-
 
 <div class="notices tip" ><p>For live viewing, <code>jq -C '&lt;expr&gt;' &lt;outputfile&gt; | less -R</code> gives you scrollable, colorized output. During a scan, you can also <code>tail -f &lt;outputfile&gt; | jq '&lt;expr&gt;'</code>.</p>
 </div>
 
-
 <p>Here are some example queries to get you started:</p>
-
 <h4 id="show-all-events-where-port-22-was-involved">Show all events where port 22 was involved</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.port == 22)&#39;</span> &lt;outputfile&gt;</code></pre></div>
-<p>This includes TCP, UDP and ZGrab2 events.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.port == 22)&#39;</span> &lt;outputfile&gt;
+</code></pre></div><p>This includes TCP, UDP and ZGrab2 events.</p>
 <h4 id="show-all-events-where-tcp-port-80-was-found-open">Show all events where tcp port 80 was found open</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;)&#39;</span> &lt;outputfile&gt;</code></pre></div>
-<p>Actually, the <code>result.portscan.open</code> can be omitted since closed ports do not generate events.</p>
-
-<h4 id="show-only-ips-names-of-systems-where-tcp-port-80-was-found-open">Show only IPs/names of systems where tcp port 80 was found open</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;) | .result.target&#39;</span> &lt;outputfile&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;)&#39;</span> &lt;outputfile&gt;
+</code></pre></div><p>Actually, the <code>result.portscan.open</code> can be omitted since closed ports do not generate events.</p>
+<h4 id="show-only-ipsnames-of-systems-where-tcp-port-80-was-found-open">Show only IPs/names of systems where tcp port 80 was found open</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq <span style="color:#e6db74">&#39;. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == &#34;tcpconnect&#34;) | .result.target&#39;</span> &lt;outputfile&gt;
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1047,6 +1045,22 @@ It allows to view and query JSON documents and you may give it a shot for access
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1503,20 +1517,20 @@ It allows to view and query JSON documents and you may give it a shot for access
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

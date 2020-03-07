@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>targetgenerator :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -804,19 +823,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#buffersize-5"><code>bufferSize: 5</code></a></li>
-</ul></li>
-<li><a href="#a-note-on-work-scheduling">A note on work scheduling</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#a-note-on-work-scheduling">A note on work scheduling</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -842,27 +856,19 @@
 
 
 
-	
-
-<p>Everything that produces a stream of targets that need to be scanned is a target generator.
+	<p>Everything that produces a stream of targets that need to be scanned is a target generator.
 Due to the modular design, it should be easy to implement your own generators from your data sources.</p>
-
 <h4 id="buffersize-5"><code>bufferSize: 5</code></h4>
-
 <p>Size of the work batch buffer. If you are planning to have a lot of nodes or a lossy data input stream, you may increase this number, otherwise it simply consumes a little bit more memory.</p>
-
 <h3 id="a-note-on-work-scheduling">A note on work scheduling</h3>
-
 <p>Understanding how nray schedules work may allow you to greatly improve performance. In order to explain the inner workings in greater detail, take a look at following configuration of the standard target generator:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">targets: [<span style="color:#e6db74">&#34;10.0.0.0/22&#34;</span>]
-tcpports: [<span style="color:#e6db74">&#34;top500&#34;</span>]
-udpports: [<span style="color:#e6db74">&#34;&#34;</span>]
-maxHostsPerBatch: <span style="color:#ae81ff">150</span>
-maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span></code></pre></div>
-<p>In this case, the network consists of about 1000 hosts to scan for the 500 most common TCP ports. In order to distribute this task across nodes, nray chops it into pieces, so called <em>work batches</em> that are requested and processed by nodes. In this case, each batch is going to contain a list of 150 hosts and 25 TCP ports that have to be scanned on these hosts. In order to scan all hosts, 7 batches would be enough, but there is also the port restriction. Each batch must not contain more than 25 ports, therefore 20 batches are required to scan all TCP ports for a single host group. In the end, <code>7 * 20 = 140</code> batches are created for the above configuration.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">targets</span>: [<span style="color:#e6db74">&#34;10.0.0.0/22&#34;</span>]
+<span style="color:#66d9ef">tcpports</span>: [<span style="color:#e6db74">&#34;top500&#34;</span>]
+<span style="color:#66d9ef">udpports</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
+<span style="color:#66d9ef">maxHostsPerBatch</span>: <span style="color:#ae81ff">150</span>
+<span style="color:#66d9ef">maxTcpPortsPerBatch</span>: <span style="color:#ae81ff">25</span>
+</code></pre></div><p>In this case, the network consists of about 1000 hosts to scan for the 500 most common TCP ports. In order to distribute this task across nodes, nray chops it into pieces, so called <em>work batches</em> that are requested and processed by nodes. In this case, each batch is going to contain a list of 150 hosts and 25 TCP ports that have to be scanned on these hosts. In order to scan all hosts, 7 batches would be enough, but there is also the port restriction. Each batch must not contain more than 25 ports, therefore 20 batches are required to scan all TCP ports for a single host group. In the end, <code>7 * 20 = 140</code> batches are created for the above configuration.</p>
 <p>In case for example only ports 22, 80 and 443 are of interest, you may scale up <code>maxHostsPerBatch</code> whereas if you only want to scan a few hosts but on a large number of ports, you may advise nray to create batches containing only one or two hosts, but for example 10000 ports.</p>
-
 <p>A good rule of thumb is to find a configuration such that nodes call back for more work every ~15-20 seconds - this gives you results often and fast and in case a node gets lost, fewer work has to be rescheduled.</p>
 
 
@@ -930,6 +936,22 @@ maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span></code></pre></div>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1387,20 +1409,20 @@ maxTcpPortsPerBatch: <span style="color:#ae81ff">25</span></code></pre></div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

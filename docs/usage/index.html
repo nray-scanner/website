@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Usage :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -792,19 +811,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#start-server">Start server</a></li>
-<li><a href="#start-node-s">Start node(s)</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -830,20 +843,17 @@
 
 
 
-	
-
-<p>Nray tries to be easy to understand and use - nevertheless, you may take a few minutes to skim the documentation to understand differences to other scanners.
+	<p>Nray tries to be easy to understand and use - nevertheless, you may take a few minutes to skim the documentation to understand differences to other scanners.
 In contrast to most other port scanners, nray is designed to allow multiple scanning nodes to conduct the scan, therefore achieving better results regarding speed and result accuracy.
 The nray binary can act as <em>server</em>, managing all connected nodes, generating work, distributing the scan tasks and collecting results, or, as <em>node</em>, perform the hard work delegated by an other nray server instance.</p>
-
 <p>Nearly all configuration is done server side in a configuration file.
 The are <strong>no</strong> command line flags for most options - configuration files prevent script wrappers, are easier to read/write, can be kept in source control systems and you can comment them so others understand the rationale behind your configuration.
 If you are new to nray, you may want to start by adopting the configuration file template while looking up configuration options before changing them.</p>
-
 <h4 id="start-server">Start server</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nray server -c &lt;/path/to/config.yml&gt;</code></pre></div>
-<h4 id="start-node-s">Start node(s)</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nray node -s &lt;server-ip-or-domain-name&gt; -p &lt;port&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nray server -c &lt;/path/to/config.yml&gt;
+</code></pre></div><h4 id="start-nodes">Start node(s)</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nray node -s &lt;server-ip-or-domain-name&gt; -p &lt;port&gt;
+</code></pre></div>
 
 
 
@@ -909,6 +919,22 @@ If you are new to nray, you may want to start by adopting the configuration file
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1361,20 +1387,20 @@ If you are new to nray, you may want to start by adopting the configuration file
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

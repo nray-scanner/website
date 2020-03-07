@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Basic settings :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -804,23 +823,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#top-level-configuration-options">Top level configuration options</a>
-<ul>
-<li><a href="#debug-false"><code>debug: false</code></a></li>
-<li><a href="#listen-8601"><code>listen: [8601]</code></a></li>
-<li><a href="#host-127-0-0-1"><code>host: &quot;127.0.0.1&quot;</code></a></li>
-<li><a href="#pools-1"><code>pools: 1</code></a></li>
-<li><a href="#considerclientpoolpreference-true"><code>considerClientPoolPreference: true</code></a></li>
-<li><a href="#allowmultiplenodesperhost-false"><code>allowMultipleNodesPerHost: false</code></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#top-level-configuration-options">Top level configuration options</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -845,32 +854,20 @@
 
 
 
-
-
 <h3 id="top-level-configuration-options">Top level configuration options</h3>
-
 <h4 id="debug-false"><code>debug: false</code></h4>
-
 <p>Enables debug output <em>server side</em>.</p>
-
 <h4 id="listen-8601"><code>listen: [8601]</code></h4>
-
 <p>The port to listen on. Multiple ports may be specified, e.g. <code>listen: [22, 80, 443, 3389]</code> to listen on ports 22, 80, 443 and 3389. This may make it easier for you to operate a server with nodes in different networks and firewall policies.</p>
-
-<h4 id="host-127-0-0-1"><code>host: &quot;127.0.0.1&quot;</code></h4>
-
+<h4 id="host-127001"><code>host: &quot;127.0.0.1&quot;</code></h4>
 <p>The address to listen on. <code>&quot;0.0.0.0&quot;</code> listens on all interfaces whereas <code>&quot;127.0.0.1&quot;</code> only listens on the loopback interface. IPv6 may work, too, but this is has not been tested yet.</p>
-
+<h4 id="statusprintinterval-15s"><code>statusPrintInterval: 15s</code></h4>
+<p>Defines how often a status line is printed.</p>
 <h4 id="pools-1"><code>pools: 1</code></h4>
-
 <p>Configures the number of pools. Please refer to <a href="../pooling">pooling</a> for more information.</p>
-
 <h4 id="considerclientpoolpreference-true"><code>considerClientPoolPreference: true</code></h4>
-
 <p>Clients may request to be placed in a specific pool. This is required when nodes in a pool share specific properties, e.g. all nodes inside the same pool are in the same country.</p>
-
 <h4 id="allowmultiplenodesperhost-false"><code>allowMultipleNodesPerHost: false</code></h4>
-
 <p>This randomizes the nodeID, allowing to run multiple nodes on the same machine or in scenarios where no unique ID can be generated from the environment, for example container environments like Kubernetes.
 This is disabled by default because it is inconsistent with the environment information transmitted during node registration and makes it impossible to find out which node generated an event in the current implementation.
 Enabling this option does not break functionality and if nray is used on a single system or container cluster, the system that generated a specific event is probably of no interest.
@@ -939,6 +936,22 @@ In scenarios where nray runs on a heterogeneous fleet, it may be relevant to tra
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1393,20 +1406,20 @@ In scenarios where nray runs on a heterogeneous fleet, it may be relevant to tra
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

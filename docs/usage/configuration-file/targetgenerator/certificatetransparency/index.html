@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>certificatetransparency :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -810,25 +829,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#enabled-false"><code>enabled: false</code></a></li>
-<li><a href="#domainregex"><code>domainRegex: '^.*$'</code></a></li>
-<li><a href="#tcpports-top25"><code>tcpports: [&quot;top25&quot;]</code></a></li>
-<li><a href="#udpports-top25"><code>udpports: [top25]</code></a></li>
-<li><a href="#blacklist"><code>blacklist: []</code></a></li>
-<li><a href="#maxhostsperbatch-150"><code>maxHostsPerBatch: 150</code></a></li>
-<li><a href="#maxtcpportsperbatch-25"><code>maxTcpPortsPerBatch: 25</code></a></li>
-<li><a href="#maxudpportsperbatch-25"><code>maxUdpPortsPerBatch: 25</code></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -853,25 +860,17 @@
 
 
 
-
-
 <p>The <code>certificatetransparency</code> streams data from <a href="https://certstream.calidog.io/">certstream</a>, a certificate transparency log stream. This allows to inspect all publicly issued certificates. Using this data, port scans may be issued against targets right after they obtain a certificate, usually during setup before any hardening or default password changes have been in place.</p>
 
-
-<div class="notices tip" ><p>This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee <i class="far fa-smile-wink"></i></p>
+<div class="notices tip" ><p>This may come in handy for bug bounties - nray authors BTW love to get invited for a coffee <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 </div>
 
-
 <h4 id="enabled-false"><code>enabled: false</code></h4>
-
 <p>Enables or disables this target generator.</p>
-
-<h4 id="domainregex"><code>domainRegex: '^.*$'</code></h4>
-
+<h4 id="domainregex-"><code>domainRegex: '^.*$'</code></h4>
 <p>Scan every site that obtains a certificate and matches the pattern <code>www.somethingsomething.com</code>.
 The default matches every domain name, to match for example <code>www.somethingsomething.com</code> an expression like <code>^(www[.]).*([.]com)$</code> may be used.
 Since regex becomes tricky fast, <a href="https://play.golang.org/p/jgDiTmPlqdW">this play</a> can be adopted to see if the expression works as intended.</p>
-
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -897,29 +896,22 @@ Since regex becomes tricky fast, <a href="https://play.golang.org/p/jgDiTmPlqdW"
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 	<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#a6e22e">regex</span>)
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">toCheck</span>))
-}</code></pre></div>
+}
+</code></pre></div>
     </div>
 </div>
-
 <p>Interesting use case ideas: Scan <code>mail.*</code> for open relays on port 25, check new <code>jenkins.*</code> instances if <code>/script</code> endpoint is present, or maybe there is some software out there that still uses default passwords? Endless possibilities!</p>
-
 <h4 id="tcpports-top25"><code>tcpports: [&quot;top25&quot;]</code></h4>
-
 <p>List of TCP ports to scan. Supports enumerations (<code>[20,21,22,23]</code>), ranges (<code>[8000-8100]</code>) or nmap-style top-lists (e.g. <code>[&quot;top50&quot;]</code>).
 You may also mix, e.g. <code>[20,21,22,23,8000-8100,&quot;top50&quot;]</code>.
-Duplicates are filtered out <i class="far fa-smile-wink"></i></p>
-
+Duplicates are filtered out <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h4 id="udpports-top25"><code>udpports: [top25]</code></h4>
-
 <p>List of UDP ports to scan. Supports enumerations (<code>[20,21,22,23]</code>), ranges (<code>[8000-8100]</code>) or nmap-style top-lists (e.g. <code>[&quot;top50&quot;]</code>).
 You may also mix, e.g. <code>[20,21,22,23,8000-8100,&quot;top50&quot;]</code>.
-Duplicates are filtered out <i class="far fa-smile-wink"></i></p>
-
-<h4 id="blacklist"><code>blacklist: []</code></h4>
-
+Duplicates are filtered out <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="blacklist-"><code>blacklist: []</code></h4>
 <p>A list of targets not to scan.
 May be CIDR networks, IPs or domain names.</p>
-
 
 <div class="notices info" ><p>DNS resolution happens at the node and there is no reverse DNS lookup.
 This has important implications.
@@ -927,17 +919,11 @@ For example, consider <em>example.local</em> resolving to <em>10.10.10.10</em>.
 When blacklisting <em>example.local</em> but scanning for <em>10.10.10.0/24</em>, the server is going to be scanned. When blacklisting <em>10.10.10.0/24</em> but scanning for <em>example.local</em>, the server is going to be scanned.</p>
 </div>
 
-
 <h4 id="maxhostsperbatch-150"><code>maxHostsPerBatch: 150</code></h4>
-
 <p>Specifies how many target hosts are contained in a single work batch sent to a node. The higher the number, the more hosts have to be scanned by a single node before fetching new work. Should be tweaked together with <code>maxTcpPortsPerBatch</code> and <code>maxUdpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
-
 <h4 id="maxtcpportsperbatch-25"><code>maxTcpPortsPerBatch: 25</code></h4>
-
 <p>Specifies how many TCP ports are scheduled for a single work batch. The higher the number, the more TCP ports are scanned (if requested) before fetching new work. Should be tweaked together with <code>maxHostsPerBatch</code> and <code>maxUdpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
-
 <h4 id="maxudpportsperbatch-25"><code>maxUdpPortsPerBatch: 25</code></h4>
-
 <p>Specifies how many UDP ports are scheduled for a single work batch. The higher the number, the more UDP ports are scanned (if requested) before fetching new work. Should be tweaked together with <code>maxHostsPerBatch</code> and <code>maxTcpPortsPerBatch</code> as well as depending on the actual requirements. You may take a look at <a href="../#a-note-on-work-scheduling">A note on work scheduling</a>.</p>
 
 
@@ -1003,6 +989,22 @@ When blacklisting <em>example.local</em> but scanning for <em>10.10.10.0/24</em>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1464,20 +1466,20 @@ When blacklisting <em>example.local</em> but scanning for <em>10.10.10.0/24</em>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

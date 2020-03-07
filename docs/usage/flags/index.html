@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.66.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Command line flags (node) :: nray</title>
 
     
-    <link href="/css/nucleus.css?1565802998" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565802998" rel="stylesheet">
-    <link href="/css/hybrid.css?1565802998" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565802998" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565802998" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565802998" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1565802998" rel="stylesheet">
-    <link href="/css/theme.css?1565802998" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565802998" rel="stylesheet">
+    <link href="/css/nucleus.css?1583617847" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1583617847" rel="stylesheet">
+    <link href="/css/hybrid.css?1583617847" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1583617847" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1583617847" rel="stylesheet">
+    <link href="/css/auto-complete.css?1583617847" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1583617847" rel="stylesheet">
+    <link href="/css/theme.css?1583617847" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1583617847" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565802998" rel="stylesheet">
+      <link href="/css/theme-blue.css?1583617847" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1565802998"></script>
+    <script src="/js/jquery-3.3.1.min.js?1583617847"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1565802998"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1565802998"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1583617847"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1583617847"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/nray-scanner.org\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1565802998"></script>
+<script type="text/javascript" src="/js/search.js?1583617847"></script>
 
     
   </div>
@@ -125,6 +125,25 @@
       <li data-nav-id="/installation/prebuilt/" title="Prebuilt Binaries" class="dd-item ">
         <a href="/installation/prebuilt/">
         Prebuilt Binaries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/docker/" title="Docker" class="dd-item ">
+        <a href="/installation/docker/">
+        Docker
         
         </a>
     </li>
@@ -798,29 +817,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#debug"><code>--debug</code></a></li>
-<li><a href="#h-help"><code>-h, --help</code></a></li>
-<li><a href="#node-name-name"><code>--node-name &lt;name&gt;</code></a></li>
-<li><a href="#p-port-port-number"><code>-p, --port &lt;port number&gt;</code></a></li>
-<li><a href="#preferred-pool-pool-number"><code>--preferred-pool &lt;pool number&gt;</code></a></li>
-<li><a href="#s-server-server-address-or-name"><code>-s, --server &lt;server address or name&gt;</code></a></li>
-<li><a href="#tls-ca-cert-path"><code>--tls-ca-cert &lt;path&gt;</code></a></li>
-<li><a href="#tls-client-cert-path"><code>--tls-client-cert &lt;path&gt;</code></a></li>
-<li><a href="#tls-client-key-path"><code>--tls-client-key &lt;path&gt;</code></a></li>
-<li><a href="#tls-insecure"><code>--tls-insecure</code></a></li>
-<li><a href="#tls-server-san-subject-alternative-name-of-server"><code>--tls-server-SAN &lt;subject alternative name of server&gt;</code></a></li>
-<li><a href="#use-tls"><code>--use-tls</code></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -845,59 +848,32 @@
 
 
 
-
-
 <p>Because nodes are going to deployed in a variety of scenarios in different environments, providing a configuration file is not viable.
 Most options are configured server side and transmitted when the node connects first, but at least the location and and connection settings (like TLS configuration) are required when a node is started.</p>
-
 <p>The following options apply when nray runs as node (<code>nray node</code>):</p>
-
-<h4 id="debug"><code>--debug</code></h4>
-
+<h4 id="--debug"><code>--debug</code></h4>
 <p>Enable debug output.</p>
-
-<h4 id="h-help"><code>-h, --help</code></h4>
-
+<h4 id="-h---help"><code>-h, --help</code></h4>
 <p>Print a help message.</p>
-
-<h4 id="node-name-name"><code>--node-name &lt;name&gt;</code></h4>
-
+<h4 id="--node-name-name"><code>--node-name &lt;name&gt;</code></h4>
 <p>Assign a name to this scanning node. Useful if you are running multiple nodes and want to distinguish results in the event logs.</p>
-
-<h4 id="p-port-port-number"><code>-p, --port &lt;port number&gt;</code></h4>
-
+<h4 id="-p---port-port-number-"><code>-p, --port &lt;port number&gt; </code></h4>
 <p>Nray server port. Usually 8601.</p>
-
-<h4 id="preferred-pool-pool-number"><code>--preferred-pool &lt;pool number&gt;</code></h4>
-
+<h4 id="--preferred-pool-pool-number"><code>--preferred-pool &lt;pool number&gt;</code></h4>
 <p>Pool to be preferably placed in at the server. If configured, the server respects this as long as the pool exists.</p>
-
-<h4 id="s-server-server-address-or-name"><code>-s, --server &lt;server address or name&gt;</code></h4>
-
+<h4 id="-s---server-server-address-or-name"><code>-s, --server &lt;server address or name&gt;</code></h4>
 <p>Nray server address.</p>
-
-<h4 id="tls-ca-cert-path"><code>--tls-ca-cert &lt;path&gt;</code></h4>
-
+<h4 id="--tls-ca-cert-path"><code>--tls-ca-cert &lt;path&gt;</code></h4>
 <p>Path to ca certificate if TLS is used. Requires <code>--use-tls</code>.</p>
-
-<h4 id="tls-client-cert-path"><code>--tls-client-cert &lt;path&gt;</code></h4>
-
+<h4 id="--tls-client-cert-path"><code>--tls-client-cert &lt;path&gt;</code></h4>
 <p>Path to tls client cert. Requires <code>--use-tls</code>.</p>
-
-<h4 id="tls-client-key-path"><code>--tls-client-key &lt;path&gt;</code></h4>
-
+<h4 id="--tls-client-key-path"><code>--tls-client-key &lt;path&gt;</code></h4>
 <p>Path to tls client key. Requires <code>--use-tls</code>.</p>
-
-<h4 id="tls-insecure"><code>--tls-insecure</code></h4>
-
+<h4 id="--tls-insecure"><code>--tls-insecure</code></h4>
 <p>Literally. Trust anybody. Don&rsquo;t do this in networks you do not fully trust. Requires <code>--use-tls</code>.</p>
-
-<h4 id="tls-server-san-subject-alternative-name-of-server"><code>--tls-server-SAN &lt;subject alternative name of server&gt;</code></h4>
-
+<h4 id="--tls-server-san-subject-alternative-name-of-server"><code>--tls-server-SAN &lt;subject alternative name of server&gt;</code></h4>
 <p>Subject alternative name of the server. Go&rsquo;s TLS implementation checks this value against the values provided in the certificate and refuses to connect if no match is found.</p>
-
-<h4 id="use-tls"><code>--use-tls</code></h4>
-
+<h4 id="--use-tls"><code>--use-tls</code></h4>
 <p>Set true to use TLS.</p>
 
 
@@ -963,6 +939,22 @@ Most options are configured server side and transmitted when the node connects f
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1419,20 +1411,20 @@ Most options are configured server side and transmitted when the node connects f
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565802998"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565802998"></script>
-    <script src="/js/jquery.sticky.js?1565802998"></script>
-    <script src="/js/featherlight.min.js?1565802998"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565802998"></script>
-    <script src="/js/highlight.pack.js?1565802998"></script>
+    <script src="/js/clipboard.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.min.js?1583617847"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1583617847"></script>
+    <script src="/js/jquery.sticky.js?1583617847"></script>
+    <script src="/js/featherlight.min.js?1583617847"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1583617847"></script>
+    <script src="/js/highlight.pack.js?1583617847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565802998"></script>
-    <script src="/js/learn.js?1565802998"></script>
-    <script src="/js/hugo-learn.js?1565802998"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1583617847"></script>
+    <script src="/js/learn.js?1583617847"></script>
+    <script src="/js/hugo-learn.js?1583617847"></script>
 
-    <link href="/mermaid/mermaid.css?1565802998" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565802998"></script>
+    <link href="/mermaid/mermaid.css?1583617847" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1583617847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
