@@ -157,3 +157,8 @@ Actually, the `result.portscan.open` can be omitted since closed ports do not ge
 jq '. | select(.result.portscan.port == 80 and .result.portscan.open == true and .result.portscan.scantype == "tcpconnect") | .result.target' <outputfile>
 ~~~
 
+#### Show list of open ports on systems
+
+~~~bash
+jq -r 'select(.result.portscan.open == true) | "\(.result.target) \(.result.port)"' <outputfile>
+~~~
